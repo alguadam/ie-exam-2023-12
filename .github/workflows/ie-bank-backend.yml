@@ -1,4 +1,4 @@
-name: app-backend-MAUDHELEN #UPDATE WITH YOUR STUDENT ALIAS
+name: app-backend-MAUDHELEN
 
 on:
   workflow_dispatch:
