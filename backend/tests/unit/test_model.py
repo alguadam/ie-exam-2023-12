@@ -10,7 +10,7 @@ def test_create_character():
     # Exercise 1: Develop this test according to the definition and make it pass in the GitHub workflow (Done)
     alias = 'hero123'
     name = 'HeroName'
-    character = Character(alias, name)
+    character = Character(alias, name) # create the instance of the class
 
     assert character.alias == alias
     assert character.name == name
