@@ -45,8 +45,8 @@ jobs:
           template: infra/main.bicep
           parameters: >-
             infra/parameters/dev.parameters.json
-            DBUSER=${{ secrets.DBUSER }}
-            DBPASS=${{ secrets.DBPASS }}
+            appServiceAPIDBHostDBUSER=${{ secrets.DBUSER }}
+            appServiceAPIEnvVarDBPASS=${{ secrets.DBPASS }}
           deploymentName: ${{ env.USER_ALIAS }}
     
 
