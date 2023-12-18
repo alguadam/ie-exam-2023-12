@@ -2,9 +2,6 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "appServiceAPIAppName": {
-            "value": "hmahmoud-be-dev"
-        },
         "environmentType": {
             "value": "nonprod"
         },
@@ -16,6 +13,9 @@
         },
         "appServicePlanName": {
             "value": "hmahmoud-asp-dev"
+        },
+        "appServiceAPIAppName": {
+            "value": "hmahmoud-be-dev"
         },
         "location": {
             "value": "East US 2"
