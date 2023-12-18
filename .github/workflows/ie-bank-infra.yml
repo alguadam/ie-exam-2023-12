@@ -26,7 +26,7 @@ jobs:
       - name: Lint Bicep file
         run: bicep build infra/main.bicep
 
-  deploy-maudhelen:
+  deploy:
     runs-on: ubuntu-latest
     needs: build
     environment:
