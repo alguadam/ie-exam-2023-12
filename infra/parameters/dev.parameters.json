@@ -2,6 +2,41 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        // Exercise II: Add parameters to deploy the infrastructure. The names for the Azure resources should start with your student alias
+        "postgreSQLServerName": {
+            "value": "mmiranda-dbsrv-dev"
+        },
+        "postgreSQLDatabaseName": {
+            "value": "mmiranda-db-dev"
+        },
+        "appServicePlanName": {
+            "value": "mmiranda-asp-dev"
+        },
+        "appServiceAPIAppName": {
+            "value": "mmiranda-be-dev"
+        },
+        "location": {
+            "value": "West US 3"
+        },
+        "appServiceAPIEnvVarENV":{
+            "value": "dev"
+        },
+        "appServiceAPIEnvVarDBHOST":{
+            "value": ""
+        },
+        "appServiceAPIEnvVarDBNAME":{
+            "value": "mmiranda-db-dev"
+        },
+        "appServiceAPIEnvVarDBPASS":{
+            "value": ""
+        },
+        "appServiceAPIDBHostDBUSER":{
+            "value": "mmiranda@mmiranda-dbsrv-dev"
+        },
+        "appServiceAPIDBHostFLASK_APP":{
+            "value": "app.py"
+        },
+        "appServiceAPIDBHostFLASK_DEBUG":{
+            "value": "1"
+        }
     }
-}
+} 
