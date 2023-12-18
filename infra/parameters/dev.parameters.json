@@ -3,16 +3,16 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "postgreSQLServerName": {
-            "value": "JMATTOUK-dbsrv-dev"
+            "value": "jmattouk-dbsrv-dev"
         },
         "postgreSQLDatabaseName": {
-            "value": "JMATTOUK-db-dev"
+            "value": "jmattouk-db-dev"
         },
         "appServicePlanName": {
-            "value": "JMATTOUK-asp-dev"
+            "value": "jmattouk-asp-dev"
         },
         "appServiceAPIAppName": {
-            "value": "JMATTOUK-be-dev"
+            "value": "jmattouk-be-dev"
         },
         "location": {
             "value": "Qatar Central"

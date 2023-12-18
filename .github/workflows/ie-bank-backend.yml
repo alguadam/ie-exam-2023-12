@@ -1,4 +1,4 @@
-name: app-backend-JMATTOUK #UPDATE WITH YOUR STUDENT ALIAS
+name: app-backend-jmattouk #UPDATE WITH YOUR STUDENT ALIAS
 
 on:
   workflow_dispatch:
@@ -8,7 +8,7 @@ on:
       - '.github/workflows/ie-bank-backend.yml'
 
 env:
-  BACKEND_WEBAPP_DEV: JMATTOUK-be-dev   #Exercise III: set the name of your web app
+  BACKEND_WEBAPP_DEV: jmattouk-be-dev   #Exercise III: set the name of your web app
 
 jobs:
   build:
