@@ -2,9 +2,6 @@
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "environmentType": {
-      "value": "nonprod"
-    },
     "postgreSQLServerName": {
       "value": "adnan-dbsrv-dev"
     },
@@ -16,9 +13,6 @@
     },
     "appServiceAPIAppName": {
       "value": "adnan-be-dev"
-    },
-    "appServiceAppName": {
-      "value": "adnan-fe-dev"
     },
     "location": {
       "value": "Canada East"
