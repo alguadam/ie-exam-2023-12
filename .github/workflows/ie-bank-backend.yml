@@ -48,7 +48,7 @@ jobs:
         with:
           name: python-app
           path: |
-            . # Exercise III
+            . 
       # GitHub action: Write step to checkout code.
 
       # Exercise III
@@ -90,7 +90,7 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: python-app
-        path: ./backend
+        path: .
     
     - uses: azure/login@v1
       with:
