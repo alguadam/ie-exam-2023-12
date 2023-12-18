@@ -1,4 +1,4 @@
-name: app-infra-AGUADAMILLAS #UPDATE TO YOUR USER ALIAS
+name: app-infra-SARWARI #UPDATE TO YOUR USER ALIAS
 
 on:
   workflow_dispatch:
@@ -10,17 +10,23 @@ on:
 env:
   RESOURCE_GROUP_DEV: aguadamillas_students_2
   SUBSCRIPTION_ID_DEV: e0b9cada-61bc-4b5a-bd7a-52c606726b3b
-  USER_ALIAS: #Add your student alias here
+  USER_ALIAS: sarwari
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
       # Exercise II
       # GitHub action: Write step to checkout code
+    - uses: actions/checkout@main
+
 
       # Exercise II
       # GitHub action: Write step to linter main.bicep
+    - name: Run Bicep linter
+      run: az bicep build --file infra/main.bicep
 
   deploy:
     runs-on: ubuntu-latest
@@ -31,10 +37,24 @@ jobs:
     steps:
       # Exercise II
       # GitHub action: Write step to checkout code
+    - uses: actions/checkout@main
     
       # Exercise II
-      # GitHub action: Write step to login in to Azure. You can use the repository secret AZURE_CREDENTIALS
+      # GitHub action: Write step to login in to Azure. You can use the repository secret AZURE_CREDENTIALS - already done
+    - name: Setup Azure CLI
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       # Exercise II
-      # GitHub action: Write step to deploy main.bicep file to Azure. You can use the repository secrets DBPASS and DBUSER.
+      # GitHub action: Write step to deploy main.bicep file to Azure. You can use the repository secrets DBPASS and DBUSER. - done
       # Recommended to use your student alias to set the deployment name to avoid conflicts with other student's deployments
+    - name: Deploy Infrastructure
+      run: |
+        az deployment group create \
+          --name ieBankDeployment \
+          --resource-group [Your Resource Group Name] \
+          --template-file infra/main.bicep \
+          --parameters infra/parameters/dev.parameters.json \
+          --parameters administratorLogin=${{ secrets.DBUSER }} \
+          --parameters administratorLoginPassword=${{ secrets.DBPASS }}
