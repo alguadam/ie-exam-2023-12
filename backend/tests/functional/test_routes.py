@@ -1,12 +1,6 @@
 from character_api import app
 import pytest
 
-# ok now we just created functional tests and we have three of them
-# the first one is just sending it purposefully to the wrong path and checking if we don't get a valid path, give 404 so that's that
-# then for get characters we simple send a get request at /characters which gets all the characters, and if works 200 status code so pass.
-# then for create character we have a post request where again we only put the values that we need to, and then if it works 200 so pass.
-
-
 def test_dummy_wrong_path():
     """
     GIVEN a Flask application
