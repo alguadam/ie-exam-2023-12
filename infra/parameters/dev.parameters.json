@@ -6,7 +6,7 @@
             "value": "MarcChebli-dbsrv-dev"
         },
         "postgreSQLDatabaseName": {
-            "value": "MarcChebli-db-dev"
+            "value": "marcchebli-db-dev"
         },
         "appServicePlanName": {
             "value": "MarcChebli-asp-dev"
