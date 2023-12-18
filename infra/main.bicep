@@ -103,6 +103,26 @@ resource appServiceAPIApp 'Microsoft.Web/sites@2022-03-01' = {
           name: 'SCM_DO_BUILD_DURING_DEPLOYMENT'
           value: 'true'
         }
+        {
+          name: 'DBUSER'
+          value: appServiceAPIDBHostDBUSER
+        }
+        {
+          name: 'DBPASS'
+          value: appServiceAPIEnvVarDBPASS
+        }
+        {
+          name: 'DBHOST'
+          value: appServiceAPIEnvVarDBHOST
+        }
+        {
+          name: 'DBNAME'
+          value: appServiceAPIEnvVarDBNAME
+        }
+        {
+          name: 'ENV'
+          value: appServiceAPIEnvVarENV
+        }
       ]
     }
   }
