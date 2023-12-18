@@ -123,6 +123,14 @@ resource appServiceAPIApp 'Microsoft.Web/sites@2022-03-01' = {
           name: 'ENV'
           value: appServiceAPIEnvVarENV
         }
+        {
+          name: 'FLASK_APP'
+          value: appServiceAPIDBHostFLASK_APP
+        }
+        {
+          name: 'FLASK_DEBUG'
+          value: appServiceAPIDBHostFLASK_DEBUG
+        }
       ]
     }
   }
