@@ -102,10 +102,6 @@ resource appServiceAPIApp 'Microsoft.Web/sites@2022-03-01' = {
       appSettings: [
         // Exercise II: Add the required environment variables for the App Service
         {
-          name: 'SCM_DO_BUILD_DURING_DEPLOYMENT'
-          value: 'true'
-        }
-        {
           name: 'ENV'
           value: appServiceAPIEnvVarENV
         }
@@ -133,7 +129,6 @@ resource appServiceAPIApp 'Microsoft.Web/sites@2022-03-01' = {
           name: 'FLASK_DEBUG'
           value: appServiceAPIDBHostFLASK_DEBUG
         }
-        // Exercise II: Add the required environment variables for the App Service
         {
           name: 'SCM_DO_BUILD_DURING_DEPLOYMENT'
           value: 'true'
