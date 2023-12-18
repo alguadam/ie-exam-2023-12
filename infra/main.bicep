@@ -19,9 +19,9 @@ param location string = resourceGroup().location
 @sys.description('The value for the environment variable ENV')
 param appServiceAPIEnvVarENV string
 @sys.description('The value for the environment variable DBHOST')
-// param appServiceAPIEnvVarDBHOST string
+param appServiceAPIEnvVarDBHOST string
 @sys.description('The value for the environment variable DBNAME')
-// param appServiceAPIEnvVarDBNAME string
+param appServiceAPIEnvVarDBNAME string
 @sys.description('The value for the environment variable DBPASS')
 @secure()
 param appServiceAPIEnvVarDBPASS string
@@ -100,16 +100,19 @@ resource appServiceAPIApp 'Microsoft.Web/sites@2022-03-01' = {
       linuxFxVersion: 'PYTHON|3.11'
       alwaysOn: false
       ftpsState: 'FtpsOnly'
-      appSettings: [
-        // Exercise II: Add the required environment variables for the App Service
-        {
-          name: 'SCM_DO_BUILD_DURING_DEPLOYMENT'
-          value: 'true'
-        }
+      appSettings: [ 
         {
           name: 'ENV'
           value: appServiceAPIEnvVarENV
-        }        
+        }
+        {
+          name: 'DBHOST'
+          value: appServiceAPIEnvVarDBHOST
+        }
+        {
+          name: 'DBNAME'
+          value: appServiceAPIEnvVarDBNAME
+        }
         {
           name: 'DBPASS'
           value: appServiceAPIEnvVarDBPASS
@@ -119,20 +122,16 @@ resource appServiceAPIApp 'Microsoft.Web/sites@2022-03-01' = {
           value: appServiceAPIDBHostDBUSER
         }
         {
-          name: 'DBHOST'
-          value: '${postgreSQLServerName}.postgres.database.azure.com'
-        }
-        {
-          name: 'DBNAME'
-          value: postgreSQLDatabaseName
-        }
-        {
           name: 'FLASK_APP'
           value: appServiceAPIDBHostFLASK_APP
         }
         {
           name: 'FLASK_DEBUG'
           value: appServiceAPIDBHostFLASK_DEBUG
+        }
+        {
+          name: 'SCM_DO_BUILD_DURING_DEPLOYMENT'
+          value: 'true'
         }
       ]
     }
