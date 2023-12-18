@@ -31,7 +31,6 @@ param appServiceAPIDBHostDBUSER string
 param appServiceAPIDBHostFLASK_APP string
 @sys.description('The value for the environment variable FLASK_DEBUG')
 param appServiceAPIDBHostFLASK_DEBUG string
-
 resource postgresSQLServer 'Microsoft.DBforPostgreSQL/flexibleServers@2022-12-01' = {
   name: postgreSQLServerName
   location: location
@@ -40,8 +39,8 @@ resource postgresSQLServer 'Microsoft.DBforPostgreSQL/flexibleServers@2022-12-01
     tier: 'Burstable'
   }
   properties: {
-    administratorLogin: // Exercise II: Use a parameter to pass the value for this attribute via GITHUB secret with name 'DBUSER'
-    administratorLoginPassword: // Exercise II: Use a parameter to pass the value for this attribute via GITHUB secret with name 'DBPASS'
+    administratorLogin: appServiceAPIDBHostDBUSER
+    administratorLoginPassword: appServiceAPIEnvVarDBPASS
     createMode: 'Default'
     highAvailability: {
       mode: 'Disabled'
@@ -98,10 +97,29 @@ resource appServiceAPIApp 'Microsoft.Web/sites@2022-03-01' = {
       alwaysOn: false
       ftpsState: 'FtpsOnly'
       appSettings: [
-        // Exercise II: Add the required environment variables for the App Service
         {
           name: 'SCM_DO_BUILD_DURING_DEPLOYMENT'
           value: 'true'
+        }
+        {
+          name: 'ENV'
+          value: appServiceAPIEnvVarENV
+        }
+        {
+          name: 'DBHOST'
+          value: appServiceAPIEnvVarDBHOST
+        }
+        {
+          name: 'DBNAME'
+          value: appServiceAPIEnvVarDBNAME
+        }
+        {
+          name: 'FLASK_APP'
+          value: appServiceAPIDBHostFLASK_APP
+        }
+        {
+          name: 'FLASK_DEBUG'
+          value: appServiceAPIDBHostFLASK_DEBUG
         }
       ]
     }
