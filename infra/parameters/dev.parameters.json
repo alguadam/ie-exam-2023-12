@@ -1,7 +1,27 @@
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        // Exercise II: Add parameters to deploy the infrastructure. The names for the Azure resources should start with your student alias
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "environmentType": {
+      "value": "nonprod"
+    },
+    "postgreSQLServerName": {
+      "value": "adnan-dbsrv-dev"
+    },
+    "postgreSQLDatabaseName": {
+      "value": "adnan-db-dev"
+    },
+    "appServicePlanName": {
+      "value": "adnan-asp-dev"
+    },
+    "appServiceAPIAppName": {
+      "value": "adnan-be-dev"
+    },
+    "appServiceAppName": {
+      "value": "adnan-fe-dev"
+    },
+    "location": {
+      "value": "Canada East"
     }
+  }
 }

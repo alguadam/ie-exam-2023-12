@@ -9,11 +9,12 @@ def test_create_character():
     """
     # Exercise 1: Develop this test according to the definition and make it pass in the GitHub workflow
     
-    character = Character('johnuser', 'John Doe', 1,  'Spain', '€')
+    character = Character('johnusername', 'John Doe')
+    assert character.alias == 'johnusername'
     assert character.name == 'John Doe'
-    assert character.country == 'Spain'
-    assert character.currency == '€'
-    assert character.account_number != None
-    assert character.balance == 0.0
-    assert character.status == 'Active'
+    assert character.level == 1
+    assert character.health == 100.0
+    assert character.strength == 5.0
+    assert character.defense == 5.0
+    assert character.speed == 5.0
 
