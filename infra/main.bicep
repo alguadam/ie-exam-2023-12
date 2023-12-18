@@ -18,17 +18,20 @@ param appServiceAPIAppName string = 'ie-bank-api-dev'
 param location string = resourceGroup().location
 @sys.description('The value for the environment variable ENV')
 param appServiceAPIEnvVarENV string
+@sys.description('The value for the environment variable DBHOST')
+param appServiceAPIEnvVarDBHOST string
+@sys.description('The value for the environment variable DBNAME')
+param appServiceAPIEnvVarDBNAME string
+@sys.description('The value for the environment variable DBPASS')
+@secure()
+param appServiceAPIEnvVarDBPASS string
+@sys.description('The value for the environment variable DBUSER')
+param appServiceAPIDBHostDBUSER string
 @sys.description('The value for the environment variable FLASK_APP')
 param appServiceAPIDBHostFLASK_APP string
 @sys.description('The value for the environment variable FLASK_DEBUG')
 param appServiceAPIDBHostFLASK_DEBUG string
 
-@sys.description('The value for the database server login username')
-param postgresSQLServerLogin string
-
-@secure()
-@sys.description('The value for the database server login password')
-param postgresSQLServerLoginPassword string
 
 resource postgresSQLServer 'Microsoft.DBforPostgreSQL/flexibleServers@2022-12-01' = {
   name: postgreSQLServerName
@@ -38,8 +41,8 @@ resource postgresSQLServer 'Microsoft.DBforPostgreSQL/flexibleServers@2022-12-01
     tier: 'Burstable'
   }
   properties: {
-    administratorLogin: postgresSQLServerLogin
-    administratorLoginPassword: postgresSQLServerLoginPassword
+    administratorLogin: appServiceAPIDBHostDBUSER
+    administratorLoginPassword: appServiceAPIEnvVarDBPASS
     createMode: 'Default'
     highAvailability: {
       mode: 'Disabled'
@@ -98,28 +101,24 @@ resource appServiceAPIApp 'Microsoft.Web/sites@2022-03-01' = {
       appSettings: [
         // Exercise II: Add the required environment variables for the App Service
         {
-          name: 'SCM_DO_BUILD_DURING_DEPLOYMENT'
-          value: 'true'
-        }
-        {
           name: 'ENV'
           value: appServiceAPIEnvVarENV
         }
         {
-          name: 'DBUSER'
-          value: postgresSQLServerLogin
-        }
-        {
-          name: 'DBPASS'
-          value: postgresSQLServerLoginPassword
+          name: 'DBHOST'
+          value: appServiceAPIEnvVarDBHOST
         }
         {
           name: 'DBNAME'
-          value: postgreSQLDatabaseName
+          value: appServiceAPIEnvVarDBNAME
         }
         {
-          name: 'DBHOST'
-          value: '${postgreSQLServerName}.postgres.database.azure.com'
+          name: 'DBPASS'
+          value: appServiceAPIEnvVarDBPASS
+        }
+        {
+          name: 'DBUSER'
+          value: appServiceAPIDBHostDBUSER
         }
         {
           name: 'FLASK_APP'
@@ -129,6 +128,11 @@ resource appServiceAPIApp 'Microsoft.Web/sites@2022-03-01' = {
           name: 'FLASK_DEBUG'
           value: appServiceAPIDBHostFLASK_DEBUG
         }
+        {
+          name: 'SCM_DO_BUILD_DURING_DEPLOYMENT'
+          value: 'true'
+        }
+
       ]
     }
   }
