@@ -97,42 +97,35 @@ resource appServiceAPIApp 'Microsoft.Web/sites@2022-03-01' = {
       linuxFxVersion: 'PYTHON|3.11'
       alwaysOn: false
       ftpsState: 'FtpsOnly'
-      appSettings: appSettings: [
+      appSettings: [
         // Exercise II: Add the required environment variables for the App Service
         {
           name: 'SCM_DO_BUILD_DURING_DEPLOYMENT'
           value: 'true'
-          
         }
         {
           name: 'ENV'
           value: appServiceAPIEnvVarENV
-          
-        }
-        {
-          name: 'DBHOST'
-          value: appServiceAPIEnvVarDBHOST
-          
-        }
-        {
-          name: 'DBNAME'
-          value: appServiceAPIEnvVarDBNAME
-          
-        }
-        {
-          name: 'DBPASS'
-          value: appServiceAPIEnvVarDBPASS
-          
         }
         {
           name: 'DBUSER'
           value: appServiceAPIDBHostDBUSER
-          
+        }
+        {
+          name: 'DBPASS'
+          value: appServiceAPIEnvVarDBPASS
+        }
+        {
+          name: 'DBNAME'
+          value: postgreSQLDatabaseName
+        }
+        {
+          name: 'DBHOST'
+          value: '${postgreSQLServerName}.postgres.database.azure.com'
         }
         {
           name: 'FLASK_APP'
           value: appServiceAPIDBHostFLASK_APP
-          
         }
         {
           name: 'FLASK_DEBUG'
@@ -144,3 +137,4 @@ resource appServiceAPIApp 'Microsoft.Web/sites@2022-03-01' = {
 }
 
 output appServiceAppHostName string = appServiceAPIApp.properties.defaultHostName
+
