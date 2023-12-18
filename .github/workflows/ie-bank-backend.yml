@@ -9,7 +9,7 @@ on:
 
 env:
   #Exercise III: set the name of your web app
-  BACKEND_WEBAPP_DEV: bmossberg-app
+  BACKEND_WEBAPP_DEV: bmossberg-be-dev
 
 jobs:
   build:
