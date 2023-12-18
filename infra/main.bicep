@@ -40,6 +40,8 @@ resource postgresSQLServer 'Microsoft.DBforPostgreSQL/flexibleServers@2022-12-01
     tier: 'Burstable'
   }
   properties: {
+    // we just pass in the params here from above, they're declared also in the yml file, which accesses them through the secrets of the repo
+    
     administratorLogin: appServiceAPIDBHostDBUSER// Exercise II: Use a parameter to pass the value for this attribute via GITHUB secret with name 'DBUSER'
     administratorLoginPassword: appServiceAPIEnvVarDBPASS// Exercise II: Use a parameter to pass the value for this attribute via GITHUB secret with name 'DBPASS'
     createMode: 'Default'
@@ -99,6 +101,7 @@ resource appServiceAPIApp 'Microsoft.Web/sites@2022-03-01' = {
       ftpsState: 'FtpsOnly'
       appSettings: [
         // Exercise II: Add the required environment variables for the App Service
+        // adding the neccessary env vars here, as params, and we pass it from the yml file when we are about to deploy. 
         {
           name: 'ENV'
           value: appServiceAPIEnvVarENV

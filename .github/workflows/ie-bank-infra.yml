@@ -12,6 +12,10 @@ env:
   SUBSCRIPTION_ID_DEV: e0b9cada-61bc-4b5a-bd7a-52c606726b3b
   USER_ALIAS: adnan
 
+# ok here we also have two jobs build-deply, and we write checkout code, and run bicep linter for main.bicep
+# then we deploy and i added env vars so pass in the params. and for steps we first checkout code, login, and deploy with the
+# params that we pass in, and my user alias.
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -33,6 +37,8 @@ jobs:
     environment:
       name: "Development"
     env:
+      # here we are setting env vars as we want to use them below when passing params. it's normally safer to do this with github secrets or github env vars, but as we
+      # are on a shared repo, just chose to do it this way. got the job done.
       ENV: dev
       DBHOST: adnan-dbsrv-dev.postgres.database.azure.com
       DBNAME: adnan-db-dev

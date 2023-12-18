@@ -11,6 +11,13 @@ env:
   #Exercise III: set the name of your web app
   BACKEND_WEBAPP_DEV: adnan-be-dev
 
+# pretty straightforward here, we are now doing 2 jobs build-deploy and build has quite a few steps
+# as we need to install, do tests and more. here's whats happening
+# we checkout code, setup python 3.11, upgrade pip, install deps from req.txt, install flake8 to check code syntax,
+# run functional and unit tests with pytest, and upload artifact, all in the directory of ./backend as thats all we want here.concurrency:
+# then for deploy we simply download the artifact and login to azure, and then deploy.
+# thanks
+
 jobs:
   build:
     runs-on: ubuntu-latest
