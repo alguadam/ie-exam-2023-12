@@ -40,8 +40,8 @@ resource postgresSQLServer 'Microsoft.DBforPostgreSQL/flexibleServers@2022-12-01
     tier: 'Burstable'
   }
   properties: {
-    administratorLogin: 'iebankdbadmin' // VER ESTO ----> Exercise II: Use a parameter to pass the value for this attribute via GITHUB secret with name 'DBUSER'
-    administratorLoginPassword: 'IE.Bank.DB.Admin.Pa$$' // VER ESTO ----->  Exercise II: Use a parameter to pass the value for this attribute via GITHUB secret with name 'DBPASS'
+    administratorLogin: 'iebankdbadmin'  //Exercise II: Use a parameter to pass the value for this attribute via GITHUB secret with name 'DBUSER'
+    administratorLoginPassword: 'IE.Bank.DB.Admin.Pa$$' //Exercise II: Use a parameter to pass the value for this attribute via GITHUB secret with name 'DBPASS'
     createMode: 'Default'
     highAvailability: {
       mode: 'Disabled'
@@ -95,24 +95,22 @@ resource appServiceAPIApp 'Microsoft.Web/sites@2022-03-01' = {
     httpsOnly: true
     siteConfig: {
       linuxFxVersion: 'PYTHON|3.11'
-      alwaysOn: false
+      alwaysOn: false 
       ftpsState: 'FtpsOnly'
       appSettings: [
         // Exercise II: Add the required environment variables for the App Service
         {
           name: 'SCM_DO_BUILD_DURING_DEPLOYMENT'
           value: 'true'
-          location: location
-          appServiceAPIAppName: appServiceAPIAppName
-          appServicePlanName: appServicePlanName
-          appServiceAPIDBHostDBUSER: appServiceAPIDBHostDBUSER
-          appServiceAPIDBHostFLASK_APP: appServiceAPIDBHostFLASK_APP
-          appServiceAPIDBHostFLASK_DEBUG: appServiceAPIDBHostFLASK_DEBUG
-          appServiceAPIEnvVarDBHOST: appServiceAPIEnvVarDBHOST
-          appServiceAPIEnvVarDBNAME: appServiceAPIEnvVarDBNAME
-          appServiceAPIEnvVarDBPASS: appServiceAPIEnvVarDBPASS
-          appServiceAPIEnvVarENV: appServiceAPIEnvVarENV
+          params: {
+            appServiceAPIDBHostDBUSER: appServiceAPIDBHostDBUSER
+            appServiceAPIEnvVarDBHOST: appServiceAPIEnvVarDBHOST
+            appServiceAPIEnvVarDBNAME: appServiceAPIEnvVarDBNAME
+            appServiceAPIEnvVarDBPASS: appServiceAPIEnvVarDBPASS
+            appServiceAPIEnvVarENV: appServiceAPIEnvVarENV
+          }
         }
+      
       ]
     }
   }
