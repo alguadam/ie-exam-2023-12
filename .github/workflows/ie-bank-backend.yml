@@ -1,5 +1,4 @@
-name: app-backend-papilioaureus #UPDATE WITH YOUR STUDENT ALIAS
-
+name: app-backend-papilioaureus 
 on:
   workflow_dispatch:
   push:
@@ -23,7 +22,7 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Upgrade pip
+      - name: Upgrade PIP
         run: |
           python -m pip install --upgrade pip
 
@@ -69,7 +68,7 @@ jobs:
             creds: ${{ secrets.AZURE_CREDENTIALS }}
       
         - name: 'Deploy to Azure Web App'
-        
+
             uses: azure/webapps-deploy@v2
             id: deploy-to-webapp
             with:
