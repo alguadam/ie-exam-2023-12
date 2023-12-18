@@ -11,8 +11,6 @@ env:
   RESOURCE_GROUP_DEV: aguadamillas_students_2
   SUBSCRIPTION_ID_DEV: e0b9cada-61bc-4b5a-bd7a-52c606726b3b
   USER_ALIAS: mdrummond #Add your student alias here
-  DBHOST: ie-bank-db-dev-2.postgres.database.azure.com
-  DBNAME: ie-bank-db-dev-2
   FLASK_APP: app.py
   FLASK_DEBUG: 1
 
@@ -27,7 +25,7 @@ jobs:
       # Exercise II
       # GitHub action: Write step to linter main.bicep
       - name: Run Bicep linter
-        run: az bicep build --file ./main.bicep
+        run: az bicep build --file infra/main.bicep
 
   deploy:
     runs-on: ubuntu-latest
