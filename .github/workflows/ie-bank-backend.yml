@@ -9,6 +9,8 @@ on:
 
 env:
   BACKEND_WEBAPP_DEV: hmahmoud-be-dev
+  source_branch_name: ${{ github.ref }}
+  pr_target_branch_name: ${{ github.base_ref }}
 
 jobs:
   build:
