@@ -4,8 +4,8 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'backend/**'
-      - '.github/workflows/ie-bank-backend.yml'
+      - "backend/**"
+      - ".github/workflows/ie-bank-backend.yml"
 
 env:
   BACKEND_WEBAPP_DEV: crequena-be-dev #Exercise III: set the name of your web app
