@@ -1,5 +1,4 @@
-name: app-backend-AGUADAMILLAS #UPDATE WITH YOUR STUDENT ALIAS
-
+name: app-backend-LeonardoMuci 
 on:
   workflow_dispatch:
   push:
@@ -8,36 +7,46 @@ on:
       - '.github/workflows/ie-bank-backend.yml'
 
 env:
-  BACKEND_WEBAPP_DEV: #Exercise III: set the name of your web app
+  BACKEND_WEBAPP_DEV: LeoWebapp
 
 jobs:
   build:
-    
     runs-on: ubuntu-latest
     env:
       ENV: ghci
 
     steps:
-      # Exercise III
-      # GitHub action: Write step to checkout code.
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-      # Exercise III
-      # GitHub action: Write step to set up Python 3.11.
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.11'
 
-      # Exercise III
-      # GitHub action: Write step to upgrade Pytyon pip. Consider using the `working-directory: ./backend` setting
-    
-      # Exercise III
-      # GitHub action: Write step to install dependencies with pip. Consider using the `working-directory: ./backend` setting
+      - name: Upgrade pip
+        run: pip install --upgrade pip
+        working-directory: ./backend
 
-      # Exercise III
-      # GitHub action: Write step to install flake8 and pytest, and use flake8 to check code syntax. Consider using the `working-directory: ./backend` setting
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+        working-directory: ./backend
 
-      # Exercise III
-      # GitHub action: Write step to run python tests with pytest. Consider using the `working-directory: ./backend` setting
+      - name: Install flake8 and pytest
+        run: |
+          pip install flake8 pytest
+          flake8 .
+        working-directory: ./backend
 
-      # Exercise III
-      # GitHub action: Write step upload the packaged code as a GitHub artifact.
+      - name: Run tests
+        run: pytest
+        working-directory: ./backend
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: packaged-code
+          path: ./backend/**/*
 
 
   deploy:
