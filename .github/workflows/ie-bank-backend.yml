@@ -60,7 +60,7 @@ jobs:
         with:
           name: python-app
           path: |
-            .
+            ./backend
 
   deploy:
     runs-on: ubuntu-latest
