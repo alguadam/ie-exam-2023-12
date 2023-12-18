@@ -1,14 +1,14 @@
 from character_api import app
 import pytest
 
-def test_dummy_wrong_path():
+def test_dummy_wrong_path(testing_client):
     """
     GIVEN a Flask application
     WHEN the '/wrong_path' page is requested (GET)
     THEN check the response is valid
     """
     # Exercise 1: Develop this test according to the definition and make it pass in the GitHub workflow
-    response = client.get('/wrong_path')
+    response = testing_client.get('/wrong_path')
     assert response.status_code == 404
 
 def test_get_characters(testing_client):
