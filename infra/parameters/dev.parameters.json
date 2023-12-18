@@ -2,9 +2,6 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "environmentType": {
-            "value": "nonprod"
-        },
         "postgreSQLServerName": {
             "value": "mmrabtei-dbsrv-dev"
         },
@@ -17,9 +14,8 @@
         "appServiceAPIAppName": {
             "value": "mmrabtei-be-dev"
         },
-        "appServiceAppName": {
-            "value": "mmrabtei-fe-dev"
+        "location": {
+            "value": "West US"
         }
-         
     }
 }
