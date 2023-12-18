@@ -19,9 +19,9 @@ param location string = resourceGroup().location
 @sys.description('The value for the environment variable ENV')
 param appServiceAPIEnvVarENV string
 @sys.description('The value for the environment variable DBHOST')
-param appServiceAPIEnvVarDBHOST string
+// param appServiceAPIEnvVarDBHOST string
 @sys.description('The value for the environment variable DBNAME')
-param appServiceAPIEnvVarDBNAME string
+// param appServiceAPIEnvVarDBNAME string
 @sys.description('The value for the environment variable DBPASS')
 @secure()
 param appServiceAPIEnvVarDBPASS string
