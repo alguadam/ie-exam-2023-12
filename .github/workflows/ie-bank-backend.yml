@@ -19,7 +19,7 @@ jobs:
 
     steps:
       # Exercise III
-      # GitHub action: Write step to checkout code.
+      # GitHub action: Write step to checkout code
       - uses: actions/checkout@v3
 
       # Exercise III
