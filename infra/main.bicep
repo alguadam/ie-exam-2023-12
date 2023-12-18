@@ -104,7 +104,7 @@ resource appServiceAPIApp 'Microsoft.Web/sites@2022-03-01' = {
           value: 'true'
           
         }
-      {
+        {
           name: 'ENV'
           value: appServiceAPIEnvVarENV
           
