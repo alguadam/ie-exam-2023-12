@@ -1,4 +1,4 @@
-name: app-infra-AGUADAMILLAS #UPDATE TO YOUR USER ALIAS
+name: Infrastructure Deployment - LeoMuci
 
 on:
   workflow_dispatch:
@@ -7,34 +7,40 @@ on:
       - 'infra/**'
       - '.github/workflows/ie-bank-infra.yml'
 
-env:
-  RESOURCE_GROUP_DEV: aguadamillas_students_2
-  SUBSCRIPTION_ID_DEV: e0b9cada-61bc-4b5a-bd7a-52c606726b3b
-  USER_ALIAS: #Add your student alias here
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      # Exercise II
-      # GitHub action: Write step to checkout code
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-      # Exercise II
-      # GitHub action: Write step to linter main.bicep
+      - name: Set up Azure CLI
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Install Bicep CLI
+        run: az bicep install
+
+      - name: Build Bicep files
+        run: az bicep build --file ./infra/main.bicep
 
   deploy:
-    runs-on: ubuntu-latest
     needs: build
-    environment:
-      name: 'Development'
-
+    runs-on: ubuntu-latest
     steps:
-      # Exercise II
-      # GitHub action: Write step to checkout code
-    
-      # Exercise II
-      # GitHub action: Write step to login in to Azure. You can use the repository secret AZURE_CREDENTIALS
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-      # Exercise II
-      # GitHub action: Write step to deploy main.bicep file to Azure. You can use the repository secrets DBPASS and DBUSER.
-      # Recommended to use your student alias to set the deployment name to avoid conflicts with other student's deployments
+      - name: Set up Azure CLI
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Deploy Infrastructure using Bicep
+        run: |
+          az group create --name LeoRSG --location eastus
+          az deployment group create \
+            --resource-group leoRSG \
+            --template-file ./infra/main.bicep \
+            --parameters dbUsername=${{ secrets.DBUSER }} dbPassword=${{ secrets.DBPASS }}
