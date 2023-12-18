@@ -1,29 +1,22 @@
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": {
-        // Exercise II: Add parameters to deploy the infrastructure. The names for the Azure resources should start with your student alias
-         "environmentType": {
-          "value": "nonprod"
-        },
-        "postgresSQLServerName": {
-          "value": "crequena-dbsrv-dev"
-        },
-        "postgreSQLDatabaseName": {
-          "value": "crequena-db-dev"
-        },
-        "appServicePlanName": {
-          "value": "crequena-asp-dev"
-        },
-        "appServiceAPIAppName": {
-          "value": "ie-bank-backend-crequena"
-        },
-        "location": {
-          "value": "UK West"
-        }
+    "parameters": { // Exercise II: Add parameters to deploy the infrastructure. The names for the Azure resources should start with your student alias
+
+    "postgreSQLServerName": {
+      "value": "crequena-dbsrv-dev"
+    },
+    "postgreSQLDatabaseName": {
+      "value": "crequena-db-dev"
+    },
+    "appServicePlanName": {
+      "value": "crequena-asp-dev"
+    },
+    "appServiceAPIAppName": {
+      "value": "crequena-be-dev"
+    },
+    "location": {
+      "value": "UK West"
     }
+  }
 }
-
-
-   
-  
