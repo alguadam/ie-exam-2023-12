@@ -40,7 +40,7 @@ jobs:
       # GitHub action: Write step to install dependencies with pip. Consider using the `working-directory: ./backend` setting
       - name: Install dependencies
         run: |
-          pip install -r ./backend/requirements.txt
+          pip install -r requirements.txt
         working-directory: ./backend
           
       # Exercise III
@@ -58,13 +58,13 @@ jobs:
         run: |
 
           # Run unit tests
-          python -m pytest ./backend/tests/unit -v
+          python -m pytest tests/unit -v
 
           # Run functional tests
-          python -m pytest ./backend/tests/functional -v
+          python -m pytest tests/functional -v
 
           # Generate coverage report
-          python -m pytest --cov=./backend/character_api --cov-report=xml:coverage.xml
+          python -m pytest --cov=.character_api --cov-report=xml:coverage.xml
 
         working-directory: ./backend
       # Exercise III
