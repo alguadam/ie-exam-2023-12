@@ -22,7 +22,7 @@ jobs:
 
         # Lint main.bicep
       - name: Run Bicep linter
-        run: |
+        run: 
           run: az bicep build --file ./main.bicep
 
       - name: Login to Azure
