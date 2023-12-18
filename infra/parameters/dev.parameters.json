@@ -2,6 +2,32 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        // Exercise II: Add parameters to deploy the infrastructure. The names for the Azure resources should start with your student alias
+        "environmentType": {
+            "value": "nonprod"
+        },
+        "postgreSQLServerName": {
+            "value": "mdrummond-dbsrv-dev"
+        },
+        "postgreSQLDatabaseName": {
+            "value": "mdrummond-db-dev"
+        },
+        "appServicePlanName": {
+            "value": "mdrummond-asp-dev"
+        },
+        "appServiceAPIAppName": {
+            "value": "mdrummond-be-dev"
+        },
+        "appServiceAppName": {
+            "value": "mdrummond-fe-dev"
+        },
+        "azureMonitorName": {
+        "value": "mdrummond-am-dev"
+        },
+        "appInsightsName": {
+        "value": "mdrummond-ai-dev"
+        },
+        "location": {
+            "value": "Central India"
+        }
     }
 }
