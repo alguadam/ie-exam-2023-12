@@ -1,4 +1,4 @@
-from character_api/models import Character
+from character_api.models import Character
 import pytest
 
 def test_create_character():
