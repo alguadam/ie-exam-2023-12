@@ -84,13 +84,26 @@ jobs:
       name: 'Development'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
-    #steps:
+    steps:
       # Exercise IV
       # GitHub action: Write download build artifact
-    
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v2
+        with:
+          name: python-app
+          path: .
+      
       # Exercise IV
       # GitHub action: Write step to login in to Azure. You can use the repository secret AZURE_CREDENTIALS
-
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+  
       # Exercise IV
       # GitHub action: Write step to deploy the downloaded artifact to your Azure web app
-    
+      - name: 'Deploy to Azure Web App'
+        uses: azure/webapps-deploy@v2
+        id: deploy-to-webapp
+        with:
+          app-name: ${{ env.BACKEND_WEBAPP_DEV }}
+          package: .
