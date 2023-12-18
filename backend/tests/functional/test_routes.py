@@ -20,10 +20,8 @@ def test_get_characters(testing_client):
     THEN check the response is valid
     """
     # Exercise 1: Develop this test according to the definition and make it pass in the GitHub workflow
-    
-    with testing_client as test_client:
-        response = test_client.get('/characters')
-        assert response.status_code == 200
+    response = testing_client.get('/characters')
+    assert response.status_code == 200
 
 def test_create_character(testing_client):
     """
@@ -32,8 +30,9 @@ def test_create_character(testing_client):
     THEN check the response is valid with status code 200
     """
     # Exercise 1: Develop this test according to the definition and make it pass in the GitHub workflow
-    with testing_client as test_client:
-        response = test_client.post('/characters', json={"name": "Alvaro Guadamillas", "alias": "alguadam"})
-        assert response.status_code == 200
+    response = testing_client.post(
+    '/characters', json={"name": "Alvaro Guadamillas", "alias": "alguadam"})
+    assert response.status_code == 200
+        
 
 
