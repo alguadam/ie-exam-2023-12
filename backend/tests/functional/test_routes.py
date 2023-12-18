@@ -7,7 +7,10 @@ def test_dummy_wrong_path():
     WHEN the '/wrong_path' page is requested (GET)
     THEN check the response is valid
     """
-    # Exercise 1: Develop this test according to the definition and make it pass in the GitHub workflow
+    with app.test_client() as client:
+        response = client.get('/wrong_path')
+        assert response.status_code == 404
+
 
 def test_get_characters(testing_client):
     """
@@ -15,7 +18,11 @@ def test_get_characters(testing_client):
     WHEN the '/characters' page is requested (GET)
     THEN check the response is valid
     """
-    # Exercise 1: Develop this test according to the definition and make it pass in the GitHub workflow
+    response = testing_client.get('/characters')
+    assert response.status_code == 200
+    data = response.get_json()
+    assert 'characters' in data
+    assert isinstance(data['characters'], list)
 
 def test_create_character(testing_client):
     """
@@ -23,6 +30,13 @@ def test_create_character(testing_client):
     WHEN the '/characters' page is posted to (POST) with a valid body
     THEN check the response is valid with status code 200
     """
-    # Exercise 1: Develop this test according to the definition and make it pass in the GitHub workflow
-
+    body = {
+        'alias': 'test_alias',
+        'name': 'test_name'
+    }
+    response = testing_client.post('/characters', json=body)
+    assert response.status_code == 200
+    data = response.get_json()
+    assert 'alias' in data and data['alias'] == body['alias']
+    assert 'name' in data and data['name'] == body['name']
 
