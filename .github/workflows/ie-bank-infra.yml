@@ -22,6 +22,7 @@ jobs:
 
       # Lint Bicep code 
     - name: Run Bicep linter
+      working-directory: ./infra
       run: az bicep build --file infra/main.bicep
 
   deploy:
