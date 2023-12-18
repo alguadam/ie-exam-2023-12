@@ -29,6 +29,6 @@ def test_create_character(testing_client):
     THEN check the response is valid with status code 200
     """
     # Exercise 1: Develop this test according to the definition and make it pass in the GitHub workflow
-    response = testing_client.post('/accounts', json={'alias': 'YWH', 'name': 'ywoonhao'})
+    response = testing_client.post('/characters', json={'alias': 'YWH', 'name': 'ywoonhao'})
     assert response.status_code == 200
 
