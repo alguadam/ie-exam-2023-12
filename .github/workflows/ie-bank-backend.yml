@@ -8,7 +8,7 @@ on:
       - '.github/workflows/ie-bank-backend.yml'
 
 env:
-  BACKEND_WEBAPP_DEV: lreyes-wa #Exercise III: set the name of your web app
+  BACKEND_WEBAPP_DEV: lreyes-be-dev #Exercise III: set the name of your web app
 
 jobs:
   build:
@@ -58,7 +58,7 @@ jobs:
       # GitHub action: Write step to run python tests with pytest. Consider using the `working-directory: ./backend` setting
       - name: Test with pytest
         run: |
-          python -m pytest --cov=iebank_api -v
+          python -m pytest --cov=character_api -v
         working-directory: ./backend
 
       # Exercise III
