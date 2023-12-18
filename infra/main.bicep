@@ -100,7 +100,8 @@ resource appServiceAPIApp 'Microsoft.Web/sites@2022-03-01' = {
       linuxFxVersion: 'PYTHON|3.11'
       alwaysOn: false
       ftpsState: 'FtpsOnly'
-      appSettings: [ 
+      appSettings: [
+        // Exercise II: Add the required environment variables for the App Service
         {
           name: 'ENV'
           value: appServiceAPIEnvVarENV
