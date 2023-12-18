@@ -8,7 +8,7 @@ from character_api import db, app
 def testing_client(scope='module'):
     with app.app_context():
         db.create_all()
-        character = Character('alguadam', 'Alvaro Guadamillas')
+        character = Character('mmrabtei', 'marouane', '1', '100','5','5','5')
         db.session.add(character)
         db.session.commit()
 
