@@ -29,3 +29,4 @@ def test_create_character(testing_client):
     # Exercise 1: Develop this test according to the definition and make it pass in the GitHub workflow
     valid_response = {"name": "Test", "alias": "Test", "level": 1, "health": 100, "strength": 10, "defense": 10, "speed": 10}
     response = testing_client.post('/characters', json=valid_response)
+    assert response.status_code == 200
