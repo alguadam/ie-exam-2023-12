@@ -39,7 +39,7 @@ jobs:
 
     env:
       ENV: dev
-      DBHOST: MarcChebli-dbsrv-dev.postgres.database.azure.com
+      DBHOST: MarcChebli-ie-bank-db.postgres.database.azure.com
       DBNAME: MarcChebli-db-dev
       FLASK_APP: app.py
       FLASK_DEBUG: 1
