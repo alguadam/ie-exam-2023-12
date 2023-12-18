@@ -7,7 +7,7 @@ def test_create_character():
     WHEN a new Character is created
     THEN check the alias, name, level, health, strength, defense and speed are defined correctly
     """
-    character = Character(alias="Batman", name="Bruce Wayne", level=10, health=100, strength=50, defense=30, speed=80)
+    character = Character(alias="Batman", name="Bruce Wayne")
     assert character.alias == "Batman"
     assert character.name == "Bruce Wayne"
     assert character.level == 10
@@ -15,4 +15,5 @@ def test_create_character():
     assert character.strength == 50
     assert character.defense == 30
     assert character.speed == 80
+
     
