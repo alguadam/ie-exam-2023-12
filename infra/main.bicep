@@ -101,17 +101,37 @@ resource appServiceAPIApp 'Microsoft.Web/sites@2022-03-01' = {
       alwaysOn: false
       ftpsState: 'FtpsOnly'
       appSettings: [
-        // Exercise II: Add the required environment variables for the App Service
         {
           name: 'SCM_DO_BUILD_DURING_DEPLOYMENT'
           value: 'true'
-          appServiceAPIEnvVarENV: appServiceAPIEnvVarENV
-          appServiceAPIEnvVarDBHOST: appServiceAPIEnvVarDBHOST
-          appServiceAPIEnvVarDBNAME: appServiceAPIEnvVarDBNAME
-          appServiceAPIEnvVarDBPASS: appServiceAPIEnvVarDBPASS
-          appServiceAPIDBHostDBUSER: appServiceAPIDBHostDBUSER
-          appServiceAPIDBHostFLASK_APP: appServiceAPIDBHostFLASK_APP
-          appServiceAPIDBHostFLASK_DEBUG: appServiceAPIDBHostFLASK_DEBUG
+        }
+        {
+          name: 'ENV'
+          value: appServiceAPIEnvVarENV
+        }
+        {
+          name: 'DBHOST'
+          value: appServiceAPIEnvVarDBHOST
+        }
+        {
+          name: 'DBNAME'
+          value: appServiceAPIEnvVarDBNAME
+        }
+        {
+          name: 'DBPASS'
+          value: appServiceAPIEnvVarDBPASS
+        }
+        {
+          name: 'DBUSER'
+          value: appServiceAPIDBHostDBUSER
+        }
+        {
+          name: 'FLASK_APP'
+          value: appServiceAPIDBHostFLASK_APP
+        }
+        {
+          name: 'FLASK_DEBUG'
+          value: appServiceAPIDBHostFLASK_DEBUG
         }
       ]
     }
