@@ -1,28 +1,36 @@
 @sys.description('The PostgreSQL Server name')
-@minLength(3)
-@maxLength(24)
+@minlength(3)
+@maxlength(24)
 param postgreSQLServerName string = 'ie-bank-db-server-dev'
 @sys.description('The PostgreSQL Database name')
-@minLength(3)
-@maxLength(24)
+@minlength(3)
+@maxlength(24)
 param postgreSQLDatabaseName string = 'ie-bank-db'
 @sys.description('The App Service Plan name')
-@minLength(3)
-@maxLength(24)
+@minlength(3)
+@maxlength(24)
 param appServicePlanName string = 'ie-bank-app-sp-dev'
 @sys.description('The API App name (backend)')
-@minLength(3)
-@maxLength(24)
+@minlength(3)
+@maxlength(24)
 param appServiceAPIAppName string = 'ie-bank-api-dev'
 @sys.description('The Azure location where the resources will be deployed')
 param location string = resourceGroup().location
 @sys.description('The value for the environment variable ENV')
-@sys.description('The value for the database server login username')
-param postgresSQLServerLogin string
-
+param appServiceAPIEnvVarENV string
+@sys.description('The value for the environment variable DBHOST')
+param appServiceAPIEnvVarDBHOST string
+@sys.description('The value for the environment variable DBNAME')
+param appServiceAPIEnvVarDBNAME string
+@sys.description('The value for the environment variable DBPASS')
 @secure()
-@sys.description('The value for the database server login password')
-param postgresSQLServerLoginPassword string
+param appServiceAPIEnvVarDBPASS string
+@sys.description('The value for the environment variable DBUSER')
+param appServiceAPIDBHostDBUSER string
+@sys.description('The value for the environment variable FLASK_APP')
+param appServiceAPIDBHostFLASK_APP string
+@sys.description('The value for the environment variable FLASK_DEBUG')
+param appServiceAPIDBHostFLASK_DEBUG string
 
 
 resource postgresSQLServer 'Microsoft.DBforPostgreSQL/flexibleServers@2022-12-01' = {
@@ -97,7 +105,36 @@ resource appServiceAPIApp 'Microsoft.Web/sites@2022-03-01' = {
         {
           name: 'SCM_DO_BUILD_DURING_DEPLOYMENT'
           value: 'true'
-        }
+          }
+          {
+          name: 'ENV'
+          value: appServiceAPIEnvVarENV
+          }
+          {
+          name: 'DBHOST'
+          value: appServiceAPIEnvVarDBHOST
+          }
+          {
+          name: 'DBNAME'
+          value: appServiceAPIEnvVarDBNAME
+          }
+          {
+          name: 'DBPASS'
+          value: appServiceAPIEnvVarDBPASS
+          }
+          {
+          name: 'DBUSER'
+          value: appServiceAPIDBHostDBUSER
+          }
+          {
+          name: 'FLASK_APP'
+          value: appServiceAPIDBHostFLASK_APP
+          }
+          {
+          name: 'FLASK_DEBUG'
+          value: appServiceAPIDBHostFLASK_DEBUG
+          }
+
       ]
     }
   }
