@@ -8,7 +8,7 @@ on:
       - '.github/workflows/ie-bank-backend.yml'
 
 env:
-  BACKEND_WEBAPP_DEV: 'mmiranda-backend-dev' 
+  BACKEND_WEBAPP_DEV: 'mmiranda-be-dev' 
 
 jobs:
   build:
