@@ -119,6 +119,14 @@ resource appServiceAPIApp 'Microsoft.Web/sites@2022-03-01' = {
           value: appServiceAPIDBHostDBUSER
         }
         {
+          name: 'DBHOST'
+          value: '${postgreSQLServerName}.postgres.database.azure.com'
+        }
+        {
+          name: 'DBNAME'
+          value: postgreSQLDatabaseName
+        }
+        {
           name: 'FLASK_APP'
           value: appServiceAPIDBHostFLASK_APP
         }
