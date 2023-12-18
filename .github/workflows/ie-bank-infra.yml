@@ -59,5 +59,5 @@ jobs:
         subscriptionId: ${{ env.SUBSCRIPTION_ID_DEV }}
         resourceGroupName: ${{ env.RESOURCE_GROUP_DEV }}
         template: ./infra/main.bicep
-        parameters: ./parameters/dev.parameters.json appServiceAPIEnvVarDBPASS=${{ secrets.DBPASS }} appServiceAPIDBHostDBUSER=${{ secrets.DBUSER }} 
+        parameters: ./infra/parameters/dev.parameters.json appServiceAPIEnvVarDBPASS=${{ secrets.DBPASS }} appServiceAPIDBHostDBUSER=${{ secrets.DBUSER }} 
         deploymentName: ${{ env.USER_ALIAS }}
