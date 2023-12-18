@@ -19,6 +19,13 @@
         },
         "appServiceAppName": {
             "value": "sarwari-fe-dev"
-        }
+        },
+        "dbUser": {
+            "value": "" 
+        },
+        "dbPass": {
+            "value": "" 
+        },
+        "location": "UK West"
     }
     }
