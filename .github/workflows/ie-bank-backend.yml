@@ -88,7 +88,7 @@ jobs:
           path: .
     
       # Exercise IV
-      # GitHub action: Write step to login in to Azure. You can use the repository secret AZURE_CREDENTIALS
+      # GitHub action: Write step to login in to Azure. You can use the repository secret AZURE_CREDENTIAL
       - uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
