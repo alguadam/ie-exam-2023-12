@@ -3,5 +3,27 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         // Exercise II: Add parameters to deploy the infrastructure. The names for the Azure resources should start with your student alias
+    
+        "environmentType": {
+            "value": "nonprod"
+        },
+        "postgreSQLServerName": {
+            "value": "clorenzol-dbsrv-dev"
+        },
+        "postgreSQLDatabaseName": {
+            "value": "clorenzol-db-dev"
+        },
+        "appServicePlanName": {
+            "value": "clorenzol-asp-dev"
+        },
+        "appServiceAPIAppName": {
+            "value": "clorenzol-be-dev"
+        },
+        "appServiceAppName": {
+            "value": "clorenzol-fe-dev"
+        },
+        "location": {
+            "value": "South Central US"
+        }
     }
 }
