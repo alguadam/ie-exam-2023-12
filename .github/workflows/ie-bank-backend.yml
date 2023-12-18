@@ -39,7 +39,7 @@ jobs:
       # GitHub action: Write step to install dependencies with pip. Consider using the `working-directory: ./backend` setting
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt
+          pip install -r ./backend/requirements.txt
           
       # Exercise III
       # GitHub action: Write step to install flake8 and pytest, and use flake8 to check code syntax. Consider using the `working-directory: ./backend` setting
