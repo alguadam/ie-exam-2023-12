@@ -8,7 +8,7 @@ on:
       - '.github/workflows/ie-bank-backend.yml'
 
 env:
-  BACKEND_WEBAPP_DEV: #Exercise III: set the name of your web app
+  BACKEND_WEBAPP_DEV: sarwari-webapp-dev #Exercise III: set the name of your web app
 
 jobs:
   build:
