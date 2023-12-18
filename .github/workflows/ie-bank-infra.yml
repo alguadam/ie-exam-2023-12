@@ -48,4 +48,4 @@ jobs:
         resourceGroupName: ${{ env.RESOURCE_GROUP_DEV }}
         template: ./infra/main.bicep
         parameters: ./infra/parameters/dev.parameters.json appServiceAPIEnvVarENV=dev postgresSQLServerLoginPassword=${{ secrets.DBPASS }} postgresSQLServerLogin=${{ secrets.DBUSER }} appServiceAPIDBHostFLASK_APP=app.py appServiceAPIDBHostFLASK_DEBUG=1
-        deploymentName: ${{ env.USER_ALIAS }}
+        deploymentName: ${{ env.USER_ALIAS }} # added from this to prevent deploy errors. 
