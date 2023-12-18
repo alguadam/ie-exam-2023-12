@@ -61,7 +61,7 @@ resource postgresSQLServer 'Microsoft.DBforPostgreSQL/flexibleServers@2022-12-01
     name: 'AllowAllAzureServicesAndResourcesWithinAzureIps'
     properties: {
       endIpAddress: '0.0.0.0'
-      startIpAddress: '0.0.0.0'
+      startIpAddress: '0.0.0.0' 
     }
   }
 }
