@@ -40,8 +40,8 @@ resource postgresSQLServer 'Microsoft.DBforPostgreSQL/flexibleServers@2022-12-01
     tier: 'Burstable'
   }
   properties: {
-    administratorLogin: 'iebankdbadmin' // Exercise II: Use a parameter to pass the value for this attribute via GITHUB secret with name 'DBUSER'
-    administratorLoginPassword: 'IE.Bank.DB.Admin.Pa$$' // Exercise II: Use a parameter to pass the value for this attribute via GITHUB secret with name 'DBPASS'
+    administratorLogin: appServiceAPIDBHostDBUSER // Exercise II: Use a parameter to pass the value for this attribute via GITHUB secret with name 'DBUSER'
+    administratorLoginPassword:  appServiceAPIEnvVarDBPASS // Exercise II: Use a parameter to pass the value for this attribute via GITHUB secret with name 'DBPASS'
     createMode: 'Default'
     highAvailability: {
       mode: 'Disabled'
@@ -130,10 +130,6 @@ resource appServiceAPIApp 'Microsoft.Web/sites@2022-03-01' = {
         {
           name: 'SCM_DO_BUILD_DURING_DEPLOYMENT'
           value: 'true'
-        }
-        {
-          name: 'APPINSIGHTS_INSTRUMENTATIONKEY'
-          value: '3c75b957-a1d0-4ddb-ab2d-a0521c35c566'
         }
       ]
     }
