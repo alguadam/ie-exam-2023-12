@@ -42,7 +42,7 @@ jobs:
         with:
           subscriptionId: ${{ env.SUBSCRIPTION_ID_DEV }}
           resourceGroupName: ${{ env.RESOURCE_GROUP_DEV }}
-          template: ./main.bicep
+          template: infra/main.bicep
           parameters: >-
             ./main.dev.parameters.json
             DBUSER=${{ secrets.DBUSER }}
