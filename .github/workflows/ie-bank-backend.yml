@@ -10,7 +10,7 @@ on:
 env:
   BACKEND_WEBAPP_DEV: sbarakat-be
 
-jobs:s
+jobs:
   build:
     
     runs-on: ubuntu-latest
