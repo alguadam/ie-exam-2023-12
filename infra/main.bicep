@@ -17,10 +17,12 @@ param appServiceAPIAppName string = 'ie-bank-api-dev'
 @sys.description('The Azure location where the resources will be deployed')
 param location string = resourceGroup().location
 @sys.description('The value for the environment variable ENV')
-param appServiceAPIEnvVarDBPASS string
-@sys.description('The value for the environment variable DBUSER')
-param appServiceAPIDBHostDBUSER string
-@sys.description('The value for the environment variable FLASK_APP')
+@sys.description('The value for the database server login username')
+param postgresSQLServerLogin string
+
+@secure()
+@sys.description('The value for the database server login password')
+param postgresSQLServerLoginPassword string
 
 
 resource postgresSQLServer 'Microsoft.DBforPostgreSQL/flexibleServers@2022-12-01' = {
@@ -31,8 +33,8 @@ resource postgresSQLServer 'Microsoft.DBforPostgreSQL/flexibleServers@2022-12-01
     tier: 'Burstable'
   }
   properties: {
-    administratorLogin: appServiceAPIDBHostDBUSER
-    administratorLoginPassword: appServiceAPIEnvVarDBPASS // Exercise II: Use a parameter to pass the value for this attribute via GITHUB secret with name 'DBPASS'
+    administratorLogin: postgresSQLServerLogin
+    administratorLoginPassword: postgresSQLServerLoginPassword // Exercise II: Use a parameter to pass the value for this attribute via GITHUB secret with name 'DBPASS'
     createMode: 'Default'
     highAvailability: {
       mode: 'Disabled'

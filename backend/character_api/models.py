@@ -16,7 +16,7 @@ class Character(db.Model):
     def __repr__(self):
         return f'Character({self.name}, level={self.level}, health={self.health}, strength={self.strength}, defense={self.defense}, speed={self.speed})'
 
-    def __init__(self, alias, name):
+    def __init__(self, alias, name,):
         self.alias = alias
         self.name = name
         self.level = 1
