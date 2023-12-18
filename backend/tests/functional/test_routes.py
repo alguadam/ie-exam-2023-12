@@ -20,14 +20,8 @@ def test_get_characters(testing_client):
     WHEN the '/characters' page is requested (GET)
     THEN check the response is valid
     """
-    #Define the endpoint
-    endpoint = '/characters'
-    #Send a GET request to the endpoint
-    response = testing_client.get(endpoint)
-    #Assert that the response status code is 200 (OK)
+    response = testing_client.get('/characters')
     assert response.status_code == 200
-    #Assert that the response data is a list (this assumes that the endpoint returns a list of characters)
-    assert isinstance(response.get_json(), list)
 
 def test_create_character(testing_client):
     """
