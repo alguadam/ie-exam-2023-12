@@ -8,9 +8,9 @@ on:
       - '.github/workflows/ie-bank-backend.yml'
 
 env:
-  BACKEND_WEBAPP_DEV: sbarakat-be-dev
+  BACKEND_WEBAPP_DEV: sbarakat-be
 
-jobs:
+jobs:s
   build:
     
     runs-on: ubuntu-latest
