@@ -2,32 +2,17 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "environmentType": {
-            "value": "nonprod"
-        },
         "postgreSQLServerName": {
-            "value": "mdrummond-dbsrv-dev"
+            "value": "mdrummond-dbsrv"
         },
         "postgreSQLDatabaseName": {
-            "value": "mdrummond-db-dev"
+            "value": "mdrummond-db"
         },
         "appServicePlanName": {
-            "value": "mdrummond-asp-dev"
+            "value": "mdrummond-asp"
         },
         "appServiceAPIAppName": {
-            "value": "mdrummond-be-dev"
-        },
-        "appServiceAppName": {
-            "value": "mdrummond-fe-dev"
-        },
-        "azureMonitorName": {
-        "value": "mdrummond-am-dev"
-        },
-        "appInsightsName": {
-        "value": "mdrummond-ai-dev"
-        },
-        "location": {
-            "value": "Central India"
+            "value": "mdrummond-app"
         }
     }
 }
