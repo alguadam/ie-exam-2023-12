@@ -39,9 +39,12 @@ resource postgresSQLServer 'Microsoft.DBforPostgreSQL/flexibleServers@2022-12-01
     name: 'Standard_B1ms'
     tier: 'Burstable'
   }
+  
   properties: {
-    administratorLogin: // Exercise II: Use a parameter to pass the value for this attribute via GITHUB secret with name 'DBUSER'
-    administratorLoginPassword: // Exercise II: Use a parameter to pass the value for this attribute via GITHUB secret with name 'DBPASS'
+    // Exercise II: Use a parameter to pass the value for this attribute via GITHUB secret with name 'DBUSER'
+    administratorLogin: appServiceAPIDBHostDBUSER
+    // Exercise II: Use a parameter to pass the value for this attribute via GITHUB secret with name 'DBPASS'
+    administratorLoginPassword: appServiceAPIEnvVarDBPASS
     createMode: 'Default'
     highAvailability: {
       mode: 'Disabled'
@@ -99,6 +102,34 @@ resource appServiceAPIApp 'Microsoft.Web/sites@2022-03-01' = {
       ftpsState: 'FtpsOnly'
       appSettings: [
         // Exercise II: Add the required environment variables for the App Service
+        {
+          name: 'ENV'
+          value: appServiceAPIEnvVarENV
+        }
+        {
+          name: 'DBHOST'
+          value: appServiceAPIEnvVarDBHOST
+        }
+        {
+          name: 'DBNAME'
+          value: appServiceAPIEnvVarDBNAME
+        }
+        {
+          name: 'DBPASS'
+          value: appServiceAPIEnvVarDBPASS
+        }
+        {
+          name: 'DBUSER'
+          value: appServiceAPIDBHostDBUSER
+        }
+        {
+          name: 'FLASK_APP'
+          value: appServiceAPIDBHostFLASK_APP
+        }
+        {
+          name: 'FLASK_DEBUG'
+          value: appServiceAPIDBHostFLASK_DEBUG
+        }
         {
           name: 'SCM_DO_BUILD_DURING_DEPLOYMENT'
           value: 'true'
