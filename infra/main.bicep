@@ -102,7 +102,7 @@ resource appServiceAPIApp 'Microsoft.Web/sites@2022-03-01' = {
         // required eviorment variables for the app service
         {
           name : 'ENV'
-          value: 'dev'
+          value: 'appServiceAPIEnvVarENV'
         }
 
         {
