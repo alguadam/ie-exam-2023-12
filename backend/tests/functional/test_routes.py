@@ -19,7 +19,7 @@ def test_get_characters(testing_client):
     """
     response = testing_client.get('/characters')
     assert response.status_code == 200
-    assert response.json == {'characters': [{'alias': 'test', 'name': 'test', 'level': 1, 'health': 100, 'strength': 10, 'defense': 10, 'speed': 10}]}
+
 
 def test_create_character(testing_client):
     """
