@@ -71,7 +71,8 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: python-app
-          path: ./backend
+          path: |
+            ./backend
 
   deploy:
     runs-on: ubuntu-latest
@@ -100,4 +101,4 @@ jobs:
         id: deploy-to-webapp
         with:
           app-name: ${{ env.BACKEND_WEBAPP_DEV }}
-          package: .
+          package: ./backend
