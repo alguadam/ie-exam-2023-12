@@ -55,7 +55,7 @@ jobs:
       # GitHub action: Write step to run python tests with pytest. Consider using the `working-directory: ./backend` setting
       - name: Test with pytest
         run: |
-          python -m pytest --cov=iebank_api -v
+          python -m pytest --cov=character_api -v
       # Exercise III
       # GitHub action: Write step upload the packaged code as a GitHub artifact.
 
