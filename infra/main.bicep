@@ -102,7 +102,18 @@ resource appServiceAPIApp 'Microsoft.Web/sites@2022-03-01' = {
         {
           name: 'SCM_DO_BUILD_DURING_DEPLOYMENT'
           value: 'true'
-
+          params: {
+            location: location
+            appServiceAPIAppName: appServiceAPIAppName
+            appServicePlanName: appServicePlanName
+            appServiceAPIDBHostDBUSER: appServiceAPIDBHostDBUSER
+            appServiceAPIDBHostFLASK_APP: appServiceAPIDBHostFLASK_APP
+            appServiceAPIDBHostFLASK_DEBUG: appServiceAPIDBHostFLASK_DEBUG
+            appServiceAPIEnvVarDBHOST: appServiceAPIEnvVarDBHOST
+            appServiceAPIEnvVarDBNAME: appServiceAPIEnvVarDBNAME
+            appServiceAPIEnvVarDBPASS: appServiceAPIEnvVarDBPASS
+            appServiceAPIEnvVarENV: appServiceAPIEnvVarENV
+          }
         }
       ]
     }
