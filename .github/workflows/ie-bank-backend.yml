@@ -21,21 +21,18 @@ jobs:
       # Exercise III
       # GitHub action: Write step to checkout code.
     - uses: actions/checkout@v3
-
       # Exercise III
       # GitHub action: Write step to set up Python 3.11.
     - name: Set up Python 3.11
       uses: actions/setup-python@v3
       with:
         python-version: "3.11"
-
       # Exercise III
       # GitHub action: Write step to upgrade Pytyon pip. Consider using the `working-directory: ./backend` setting
     - name: Upgrade pip
       working-directory: ./backend
       run: |
-        python -m pip install --upgrade pip
-    
+        python -m pip install --upgrade pip 
       # Exercise III
       # GitHub action: Write step to install dependencies with pip. Consider using the `working-directory: ./backend` setting
     - name: Install dependencies
@@ -51,14 +48,12 @@ jobs:
         # just in case (as per co pilot reccomendations)
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics # for errors 
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics # for warnings
-
       # Exercise III
       # GitHub action: Write step to run python tests with pytest. Consider using the `working-directory: ./backend` setting
     - name: Test with pytest
       working-directory: ./backend
       run: |
-        python -m pytest --cov=iebank_api -v # for tests
-
+        python -m pytest --cov=iebank_api -v # added coverabe report suggest by co pilot
       # Exercise III
       # GitHub action: Write step upload the packaged code as a GitHub artifact.
     - name: Upload artifact for deployment jobs
@@ -67,14 +62,12 @@ jobs:
         name: python-app
         path: |
           ./backend
-
   deploy:
     runs-on: ubuntu-latest
     needs: build
     environment:
       name: 'Development'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }} # this is the url of the deployed app but set as an output of the deploy step
-
     steps:
       # Exercise IV
       # GitHub action: Write download build artifact
@@ -82,14 +75,12 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: python-app
-        path: ./backend
-    
+        path: ./backend   
       # Exercise IV
       # GitHub action: Write step to login in to Azure. You can use the repository secret AZURE_CREDENTIALS
     - uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
-
       # Exercise IV
       # GitHub action: Write step to deploy the downloaded artifact to your Azure web app
     - name: 'Deploy to Azure Web App'
