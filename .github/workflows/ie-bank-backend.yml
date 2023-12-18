@@ -47,9 +47,7 @@ jobs:
       - name: Lint with flake8
         run: |
           pip install flake8 pytest
-          # stop the build if there are Python syntax errors or undefined names
           flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-          # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
       # Exercise III
       # GitHub action: Write step to run python tests with pytest. Consider using the `working-directory: ./backend` setting
@@ -57,13 +55,13 @@ jobs:
         run: |
 
           # Run unit tests
-          python -m pytest tests/unit -v
+          python -m pytest ./backend/tests/unit -v
 
           # Run functional tests
-          python -m pytest tests/functional -v
+          python -m pytest ./backend/tests/functional -v
 
           # Generate coverage report
-          python -m pytest --cov=character_api --cov-report=xml:coverage.xml
+          python -m pytest --cov=./backend/character_api --cov-report=xml:coverage.xml
       # Exercise III
       # GitHub action: Write step upload the packaged code as a GitHub artifact.
 
