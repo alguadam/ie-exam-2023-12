@@ -2,6 +2,20 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        // Exercise II: Add parameters to deploy the infrastructure. The names for the Azure resources should start with your student alias
+        "postgreSQLServerName": {
+            "value": "gdeolaguibel-dbsrv-dev"
+        },
+        "postgreSQLDatabaseName": {
+            "value": "gdeolaguibel-db-dev"
+        },
+        "appServicePlanName": {
+            "value": "gdeolaguibel-asp-dev"
+        },
+        "appServiceAPIAppName": {
+            "value": "gdeolaguibel-be-dev"
+        },
+        "location": {
+            "value": "East Asia"
+        }
     }
 }
