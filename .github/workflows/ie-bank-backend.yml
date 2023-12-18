@@ -4,15 +4,14 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'backend/**'
-      - '.github/workflows/ie-bank-backend.yml'
+      - "backend/**"
+      - ".github/workflows/ie-bank-backend.yml"
 
 env:
   BACKEND_WEBAPP_DEV: felixgg-be-dev #Exercise III: set the name of your web app
 
 jobs:
   build:
-    
     runs-on: ubuntu-latest
     env:
       ENV: ghci
@@ -55,7 +54,7 @@ jobs:
       - name: Test with pytest
         run: python -m pytest --cov=iebank_api -v
         working-directory: ./backend
-        
+
       # Exercise III
       # GitHub action: Write step upload the packaged code as a GitHub artifact.
       - name: Upload backend artifact
@@ -64,21 +63,33 @@ jobs:
           name: python-app
           path: ./backend
 
-
   deploy:
     runs-on: ubuntu-latest
     needs: build
     environment:
-      name: 'Development'
+      name: "Development"
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
       # Exercise IV
       # GitHub action: Write download build artifact
-    
+      - name: Download backend artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: python-app
+          path: .
+
       # Exercise IV
       # GitHub action: Write step to login in to Azure. You can use the repository secret AZURE_CREDENTIALS
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       # Exercise IV
       # GitHub action: Write step to deploy the downloaded artifact to your Azure web app
-    
+      - name: Deploy to Azure Web App (Backend)
+        uses: azure/webapps-deploy@v2
+        id: deploy-to-webapp
+        with:
+          app-name: ${{ env.BACKEND_WEBAPP_DEV }}
+          package: ./
