@@ -8,7 +8,8 @@ on:
       - ".github/workflows/ie-bank-backend.yml"
 
 env:
-  BACKEND_WEBAPP_DEV: adnan-be-dev #Exercise III: set the name of your web app
+  #Exercise III: set the name of your web app
+  BACKEND_WEBAPP_DEV: adnan-be-dev
 
 jobs:
   build:
