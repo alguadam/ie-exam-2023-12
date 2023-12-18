@@ -42,9 +42,9 @@ resource postgresSQLServer 'Microsoft.DBforPostgreSQL/flexibleServers@2022-12-01
   }
   properties: {
     // Exercise II: Use a parameter to pass the value for this attribute via GITHUB secret with name 'DBUSER'
-    administratorLogin: DBUSER
+    administratorLogin: appServiceAPIDBHostDBUSER
     // Exercise II: Use a parameter to pass the value for this 
-    administratorLoginPassword: DBPASS
+    administratorLoginPassword: appServiceAPIEnvVarDBPASS
     createMode: 'Default'
     highAvailability: {
       mode: 'Disabled'

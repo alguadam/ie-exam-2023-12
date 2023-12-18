@@ -51,5 +51,5 @@ jobs:
           subscriptionId: ${{ env.SUBSCRIPTION_ID_DEV }}
           resourceGroupName: ${{ env.RESOURCE_GROUP_DEV }}
           template: ./infra/main.bicep
-          parameters: ./infra/parameters/dev.parameters.json DBPASS=${{ secrets.DBPASS }} DBUSER=${{ secrets.DBUSER }}
+          parameters: ./infra/parameters/dev.parameters.json appServiceAPIEnvVarDBPASS=${{ secrets.DBPASS }} appServiceAPIDBHostDBUSER=${{ secrets.DBUSER }}
           deploymentName: ${{ env.USER_ALIAS }}-ie-bank-infra
