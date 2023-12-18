@@ -9,8 +9,8 @@ def test_create_character():
     """
     # Exercise 1: Develop this test according to the definition and make it pass in the GitHub workflow
     new_character = Character(alias='alguadam', name='Alvaro Guadamillas')
-    assert new_character.alias == 'Alvaro Guadamillas'
-    assert new_character.name == 'Zaid'
+    assert new_character.alias == 'alguadam'
+    assert new_character.name == 'Alvaro Guadamillas'
     assert new_character.level == 1
     assert new_character.health == 100.0
     assert new_character.strength == 5.0
