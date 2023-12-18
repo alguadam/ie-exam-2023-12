@@ -40,8 +40,11 @@ resource postgresSQLServer 'Microsoft.DBforPostgreSQL/flexibleServers@2022-12-01
     tier: 'Burstable'
   }
   properties: {
-    administratorLogin: // Exercise II: Use a parameter to pass the value for this attribute via GITHUB secret with name 'DBUSER'
-    administratorLoginPassword: // Exercise II: Use a parameter to pass the value for this attribute via GITHUB secret with name 'DBPASS'
+    // administratorLogin: // Exercise II: Use a parameter to pass the value for this attribute via GITHUB secret with name 'DBUSER'
+    // GET IT DIRECTLY FROM HE GITHUB SECRET
+    administratorLogin: appServiceAPIDBHostDBUSER
+    // administratorLoginPassword: // Exercise II: Use a parameter to pass the value for this attribute via GITHUB secret with name 'DBPASS'
+    administratorLoginPassword: appServiceAPIEnvVarDBPASS
     createMode: 'Default'
     highAvailability: {
       mode: 'Disabled'
