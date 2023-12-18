@@ -16,6 +16,12 @@
         },
         "appServiceAPIEnvVarENV": {
             "value": "dev"
+        },
+        "appServiceAPIEnvVarDBHOST":{
+            "value": "Karimg-ie-bank-db.postgres.database.azure.com"
+        },
+        "appServiceAPIEnvVarDBNAME":{
+            "value": "Karimg-db-server-dev"
         }
-    }
+        }
     }
