@@ -24,6 +24,8 @@ jobs:
       # GitHub action: Write step to linter main.bicep
       - name: Run Bicep linter
         run: az bicep build --file ./main.bicep
+        working-directory: ./infra
+
 
   deploy:
     runs-on: ubuntu-latest
