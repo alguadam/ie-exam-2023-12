@@ -51,13 +51,13 @@ jobs:
       run: |
 
         # Run unit tests
-        python -m pytest backend/tests/unit -v
+        python -m pytest tests/unit -v
 
         # Run functional tests
-        python -m pytest backend/tests/functional -v
+        python -m pytest tests/functional -v
 
         # Generate coverage report
-        python -m pytest backend/tests --cov=backend/character_api --cov-report=xml:coverage.xml
+        python -m pytest tests --cov=character_api --cov-report=xml:coverage.xml
     
     - name: Upload artifact for deployment jobs
       uses: actions/upload-artifact@v2
