@@ -11,7 +11,7 @@ def test_create_character():
     assert character.alias == 'rixman'
     assert character.name == 'Riyad'
     assert character.level != 10
-    assert character.health == 80.0
+    assert character.health == 100.0
     assert character.strength == 5.0
     assert character.defense == 3.0
     assert character.speed == 4.0
