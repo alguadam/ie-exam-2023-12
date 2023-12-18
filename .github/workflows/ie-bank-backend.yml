@@ -70,9 +70,9 @@ jobs:
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v2
         with:
-          name: clorenzol-backend
+          name: python-app
           path: |
-            ./backend
+            .
 
   deploy:
     runs-on: ubuntu-latest
@@ -88,8 +88,8 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v2
         with:
-          name: clorenzol-backend
-          path: ./backend
+          name: python-app
+          path: .
 
       # Exercise IV
       # GitHub action: Write step to login in to Azure. You can use the repository secret AZURE_CREDENTIALS
