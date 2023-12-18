@@ -57,7 +57,7 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
-        - name: Download artifact from build job
+        - name: Download artifact from build job I LOVE YAML
           uses: actions/download-artifact@v2
           with:
             name: python-app
