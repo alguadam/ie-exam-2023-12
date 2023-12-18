@@ -3,9 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         // Exercise II: Add parameters to deploy the infrastructure. The names for the Azure resources should start with your student alias
-        "environmentType": {
-            "value": "nonprod"
-        }, 
+    
         "postgreSQLServerName": {
             "value": "asaurasieu-dbsrv-dev"
         },
@@ -18,9 +16,7 @@
         "appServiceAPIappName": {
             "value":  "asaurasieu-be-dev"
         },
-        "appServiceAppName": {
-            "value":   "asaurasieu-fe-dev"
-        },
+        
         "location". {
             "value": "westeurope"
         }
