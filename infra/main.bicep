@@ -109,15 +109,7 @@ resource appServiceAPIApp 'Microsoft.Web/sites@2022-03-01' = {
         {
           name: 'ENV'
           value: appServiceAPIEnvVarENV
-        }
-        {
-          name: 'DBHOST'
-          value: appServiceAPIEnvVarDBHOST
-        }
-        {
-          name: 'DBNAME'
-          value: appServiceAPIEnvVarDBNAME
-        }
+        }        
         {
           name: 'DBPASS'
           value: appServiceAPIEnvVarDBPASS
