@@ -1,4 +1,4 @@
-name: app-backend-AGUADAMILLAS #UPDATE WITH YOUR STUDENT ALIAS
+name: app-backend-KARIMGHAZZI #UPDATE WITH YOUR STUDENT ALIAS
 
 on:
   workflow_dispatch:
@@ -9,6 +9,7 @@ on:
 
 env:
   BACKEND_WEBAPP_DEV: #Exercise III: set the name of your web app
+  RESOURCE_GROUP: aguadamillas_students_1
 
 jobs:
   build:
