@@ -9,8 +9,7 @@ on:
 
 env:
   #Exercise III: set the name of your web app
-  BACKEND_WEBAPP_DEV: ie-bank-backend-lucacuneo
-
+  BACKEND_WEBAPP_DEV: lucacuneo-bd-dev
 jobs:
   build:
     runs-on: ubuntu-latest
