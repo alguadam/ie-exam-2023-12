@@ -22,6 +22,9 @@
         },
         "appServiceAPIEnvVarDBNAME":{
             "value": "jmattouk-db-server-dev"
+        },
+        "location": {
+            "value": "Qatar Central"
         }
         }
     }
