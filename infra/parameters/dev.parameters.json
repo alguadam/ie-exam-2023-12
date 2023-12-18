@@ -3,16 +3,16 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "postgreSQLServerName": {
-            "value": "11acc-NEW-dbsrv-dev"
+            "value": "11-aleja-dbsrv-dev"
         },
         "postgreSQLDatabaseName": {
-            "value": "11acc-NEW-db-dev"
+            "value": "11-aleja-db-dev"
         },
         "appServicePlanName": {
-            "value": "11acc-NEW-asp-dev"
+            "value": "11-aleja-asp-dev"
         },
         "appServiceAPIAppName": {
-            "value": "11acc-NEW-be-dev"
+            "value": "11-aleja-be-dev"
         },
         "location": {
             "value": "Japan East"

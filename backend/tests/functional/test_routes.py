@@ -26,7 +26,7 @@ def test_create_character(testing_client):
     WHEN the '/characters' page is posted to (POST) with a valid body
     THEN check the response is valid with status code 200
     """
-    response = testing_client.post('/characters', json={'alias': 'reoken', 'name': '11acc'})
+    response = testing_client.post('/characters', json={'alias': 'reoken', 'name': '11-aleja'})
     assert response.status_code == 200
 
 
