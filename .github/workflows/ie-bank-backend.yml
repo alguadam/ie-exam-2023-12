@@ -21,24 +21,55 @@ jobs:
     steps:
       # Exercise III
       # GitHub action: Write step to checkout code.
+    - uses: actions/checkout@v3
 
       # Exercise III
       # GitHub action: Write step to set up Python 3.11.
+    - name: Set up Python 3.11
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.11"
 
       # Exercise III
       # GitHub action: Write step to upgrade Pytyon pip. Consider using the `working-directory: ./backend` setting
+    - name: Upgrade pip
+      run: |
+        python -m pip install --upgrade pip
+      working-directory: ./backend
     
       # Exercise III
       # GitHub action: Write step to install dependencies with pip. Consider using the `working-directory: ./backend` setting
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+      working-directory: ./backend
 
       # Exercise III
       # GitHub action: Write step to install flake8 and pytest, and use flake8 to check code syntax. Consider using the `working-directory: ./backend` setting
+    - name: Lint with flake8
+      run: |
+        pip install flake8 pytest
+        # stop the build if there are Python syntax errors or undefined names
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+      working-directory: ./backend
 
       # Exercise III
       # GitHub action: Write step to run python tests with pytest. Consider using the `working-directory: ./backend` setting
+    - name: Test with pytest
+      run: |
+        python -m pytest --cov=character_api -v
+      working-directory: ./backend
 
       # Exercise III
       # GitHub action: Write step upload the packaged code as a GitHub artifact.
+    - name: Upload artifact for deployment jobs
+      uses: actions/upload-artifact@v2
+      with:
+        name: python-app
+        path: |
+          . 
 
 
   deploy:
@@ -51,10 +82,24 @@ jobs:
     steps:
       # Exercise IV
       # GitHub action: Write download build artifact
+    - name: Download artifact from build job
+      uses: actions/download-artifact@v2
+      with:
+        name: python-app
+        path: .
     
       # Exercise IV
       # GitHub action: Write step to login in to Azure. You can use the repository secret AZURE_CREDENTIALS
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       # Exercise IV
       # GitHub action: Write step to deploy the downloaded artifact to your Azure web app
+    - name: 'Deploy to Azure Web App'
+      uses: azure/webapps-deploy@v2
+      id: deploy-to-webapp
+      with:
+        app-name: ${{ env.BACKEND_WEBAPP_DEV }}
+        package: .
     

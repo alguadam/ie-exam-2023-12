@@ -2,6 +2,17 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        // Exercise II: Add parameters to deploy the infrastructure. The names for the Azure resources should start with your student alias
+        "PostgreSQLServerName": {
+            "value": "Karimg-db-server-dev"
+        },
+        "PostgreSQLDatabaseName": {
+            "value": "Karimg-ie-bank-db"
+        },
+        "AppServicePlanName": {
+            "value": "Karimg-app-sp-dev"
+        },
+        "AppServiceAPIName": {
+            "value": "Karimg-ie-bank-api-dev"
+        }
     }
 }
