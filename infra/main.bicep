@@ -98,6 +98,8 @@ resource appServiceAPIApp 'Microsoft.Web/sites@2022-03-01' = {
       alwaysOn: false
       ftpsState: 'FtpsOnly'
       appSettings: [
+        
+
         // Exercise II: Add the required environment variables for the App Service
         {
           name: 'SCM_DO_BUILD_DURING_DEPLOYMENT'
