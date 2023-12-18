@@ -26,7 +26,6 @@ param appServiceAPIEnvVarDBNAME string
 @secure()
 param appServiceAPIEnvVarDBPASS string
 @sys.description('The value for the environment variable DBUSER')
-@secure()
 param appServiceAPIDBHostDBUSER string
 @sys.description('The value for the environment variable FLASK_APP')
 param appServiceAPIDBHostFLASK_APP string
@@ -99,7 +98,6 @@ resource appServiceAPIApp 'Microsoft.Web/sites@2022-03-01' = {
       alwaysOn: false
       ftpsState: 'FtpsOnly'
       appSettings: [
-        // Exercise II: Add the required environment variables for the App Service
         {
           name: 'ENV'
           value: appServiceAPIEnvVarENV
