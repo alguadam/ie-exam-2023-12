@@ -17,7 +17,7 @@ jobs:
     env:
       ENV: ghci
 
-    steps:
+    #steps:
       # Exercise III
       # GitHub action: Write step to checkout code.
 
@@ -47,7 +47,7 @@ jobs:
       name: 'Development'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
-    steps:
+    #steps:
       # Exercise IV
       # GitHub action: Write download build artifact
     
