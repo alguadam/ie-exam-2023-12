@@ -2,6 +2,26 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        // Exercise II: Add parameters to deploy the infrastructure. The names for the Azure resources should start with your student alias
+        "postgreSQLServerName": {
+            "value": "sarwari-dbsrv-dev"
+        },
+        "postgreSQLDatabaseName": {
+            "value": "sarwari-db-dev"
+        },
+        "appServicePlanName": {
+            "value": "sarwari-asp-dev"
+        },
+        "appServiceAPIAppName": {
+            "value": "sarwari-be-dev"
+        },
+        "dbUser": {
+            "value": "" 
+        },
+        "dbPass": {
+            "value": "" 
+        },        
+        "location":{
+            "value": "UK South"
+        }
     }
-}
+    }
