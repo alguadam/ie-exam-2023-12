@@ -38,7 +38,7 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: Deploy bicep 
+      - name: deploy
         uses: azure/arm-deploy@v1
         with:
             subscriptionId: ${{ env.SUBSCRIPTION_ID_DEV }}
@@ -46,7 +46,3 @@ jobs:
             template: ./infra/main.bicep
             parameters: ./infra/parameters/dev.parameters.json appServiceAPIEnvVarENV=${{ vars.ENV }} appServiceAPIEnvVarDBHOST=${{ vars.DBHOST }} appServiceAPIEnvVarDBNAME=${{ vars.DBNAME }} appServiceAPIEnvVarDBPASS=${{ secrets.DBPASS }} appServiceAPIDBHostDBUSER=${{ secrets.DBUSER }} appServiceAPIDBHostFLASK_APP=${{ vars.FLASK_APP }} appServiceAPIDBHostFLASK_DEBUG=${{ vars.FLASK_DEBUG }}
             deploymentName: ${{ env.USER_ALIAS }}
-      
-      # Exercise II
-      # GitHub action: Write step to deploy main.bicep file to Azure. You can use the repository secrets DBPASS and DBUSER.
-      # Recommended to use your student alias to set the deployment name to avoid conflicts with other student's deployments
