@@ -8,7 +8,7 @@ on:
       - '.github/workflows/ie-bank-backend.yml'
 
 env:
-  BACKEND_WEBAPP_DEV: 'glerer-be' #Exercise III: set the name of your web app
+  BACKEND_WEBAPP_DEV: 'gretal-be' #Exercise III: set the name of your web app
 
 jobs:
   build:
