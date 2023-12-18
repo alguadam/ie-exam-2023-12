@@ -10,10 +10,10 @@ def test_create_character():
     character = Character(alias="Batman", name="Bruce Wayne")
     assert character.alias == "Batman"
     assert character.name == "Bruce Wayne"
-    assert character.level == 10
+    assert character.level == 1
     assert character.health == 100
-    assert character.strength == 50
-    assert character.defense == 30
-    assert character.speed == 80
+    assert character.strength == 5
+    assert character.defense == 5
+    assert character.speed == 5
 
     
