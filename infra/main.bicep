@@ -101,44 +101,36 @@ resource appServiceAPIApp 'Microsoft.Web/sites@2022-03-01' = {
         // Exercise II: Add the required environment variables for the App Service
         // required eviorment variables for the app service
         {
-          name : 'ENV'
-          value: 'appServiceAPIEnvVarENV'
+          name: 'ENV'
+          value: appServiceAPIEnvVarENV
         }
-
         {
-          name : 'DBHOST'
-          value: 'appServiceAPIEnvVarDBHOST'
+          name: 'DBHOST'
+          value: appServiceAPIEnvVarDBHOST
         }
-
         {
-          name : 'DBNAME'
-          value : 'appServiceAPIEnvVarDBNAME'
+          name: 'DBNAME'
+          value: appServiceAPIEnvVarDBNAME
         }
-
         {
-          name : 'DBPASS'
-          value: 'appServiceAPIEnvVarDBPASS'
+          name: 'DBPASS'
+          value: appServiceAPIEnvVarDBPASS
         }
-
         {
-          name : 'DBUSER'
-          value: 'appServiceAPIDBHostDBUSER'
+          name: 'DBUSER'
+          value: appServiceAPIDBHostDBUSER
         }
-
         {
-          name : 'FLASK_APP'
-          value: 'appServiceAPIDBHostFLASK_APP'
+          name: 'FLASK_APP'
+          value: appServiceAPIDBHostFLASK_APP
         }
-
         {
-          name : 'FLASK_DEBUG'
-          value: 'appServiceAPIDBHostFLASK_DEBUG'
+          name: 'FLASK_DEBUG'
+          value: appServiceAPIDBHostFLASK_DEBUG
         }
-
         {
           name: 'SCM_DO_BUILD_DURING_DEPLOYMENT'
           value: 'true'
-          
         }
       ]
     }
