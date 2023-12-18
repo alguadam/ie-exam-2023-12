@@ -1,4 +1,4 @@
-name: app-backend-GRETAL #UPDATE WITH YOUR STUDENT ALIAS
+name: app-backend-GRETAL #UPDATE WITH YOUR STUDENT ALIAS 
 
 on:
   workflow_dispatch:
