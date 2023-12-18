@@ -2,11 +2,11 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "postgreSQLServerName": {
-            "value": "jmattouk-dbsrv-dev"
-        },
         "postgreSQLDatabaseName": {
             "value": "jmattouk-db-dev"
+        },
+        "postgreSQLServerName": {
+            "value": "jmattouk-dbsrv-dev"
         },
         "appServicePlanName": {
             "value": "jmattouk-asp-dev"
@@ -14,8 +14,14 @@
         "appServiceAPIAppName": {
             "value": "jmattouk-be-dev"
         },
-        "location": {
-            "value": "Qatar Central"
+        "appServiceAPIEnvVarENV": {
+            "value": "dev"
+        },
+        "appServiceAPIEnvVarDBHOST":{
+            "value": "jmattouk-ie-bank-db.postgres.database.azure.com"
+        },
+        "appServiceAPIEnvVarDBNAME":{
+            "value": "jmattouk-db-server-dev"
+        }
         }
     }
-}
