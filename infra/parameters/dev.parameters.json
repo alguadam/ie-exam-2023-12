@@ -3,16 +3,16 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "postgreSQLServerName": {
-            "value": "clorenzol-dbsrv"
+            "value": "clorenzol-dbsrv-dev"
         },
         "postgreSQLDatabaseName": {
-            "value": "clorenzol-db"
+            "value": "clorenzol-db-dev"
         },
         "appServicePlanName": {
-            "value": "clorenzol-asp"
+            "value": "clorenzol-asp-dev"
         },
         "appServiceAPIAppName": {
-            "value": "clorenzol-app"
+            "value": "clorenzol-be-dev"
         }
     }
 }
