@@ -9,7 +9,7 @@ on:
 
 env:
   #Exercise III: set the name of your web app
-  BACKEND_WEBAPP_DEV: lucacuneo-bd-dev
+  BACKEND_WEBAPP_DEV: lucacuneo-be-dev
 jobs:
   build:
     runs-on: ubuntu-latest
