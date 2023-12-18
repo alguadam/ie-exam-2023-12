@@ -13,6 +13,16 @@
         },
         "AppServiceAPIName": {
             "value": "Karimg-ie-bank-api-dev"
+        },
+
+        "appServiceAPIEnvVarENV": {
+            "value": "dev"
+        },
+        "appServiceAPIEnvVarDBHOST": {
+            "value": ""
+        },
+        "appServiceAPIEnvVarDBNAME": {
+            "value": ""
         }
     }
-}
+    }

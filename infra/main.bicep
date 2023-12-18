@@ -27,10 +27,10 @@ param appServiceAPIEnvVarDBNAME string
 param appServiceAPIEnvVarDBPASS string
 @sys.description('The value for the environment variable DBUSER')
 param appServiceAPIDBHostDBUSER string
-@sys.description('The value for the environment variable FLASK_APP')
-param appServiceAPIDBHostFLASK_APP string
-@sys.description('The value for the environment variable FLASK_DEBUG')
-param appServiceAPIDBHostFLASK_DEBUG string
+// @sys.description('The value for the environment variable FLASK_APP')
+// param appServiceAPIDBHostFLASK_APP string
+// @sys.description('The value for the environment variable FLASK_DEBUG')
+// param appServiceAPIDBHostFLASK_DEBUG string
 
 resource postgresSQLServer 'Microsoft.DBforPostgreSQL/flexibleServers@2022-12-01' = {
   name: postgreSQLServerName
@@ -104,33 +104,25 @@ resource appServiceAPIApp 'Microsoft.Web/sites@2022-03-01' = {
           value: 'true'
         }
         {
-          name: appServiceAPIEnvVarDBNAME
-          value: appServiceAPIEnvVarDBNAME
-        }
-        {
-          name: appServiceAPIEnvVarENV
+          name: 'ENV'
           value: appServiceAPIEnvVarENV
         }
         {
-          name: appServiceAPIDBHostDBUSER
-          value: appServiceAPIDBHostDBUSER
-        }
-        {
-          name: appServiceAPIDBHostFLASK_APP
-          value: appServiceAPIDBHostFLASK_APP
-        }
-        {
-          name: appServiceAPIDBHostFLASK_DEBUG
-          value: appServiceAPIDBHostFLASK_DEBUG
-        }
-        {
-          name: appServiceAPIEnvVarDBHOST
+          name: 'DBHOST'
           value: appServiceAPIEnvVarDBHOST
         }
         {
-          name: appServiceAPIEnvVarDBPASS
+          name: 'DBNAME'
+          value: appServiceAPIEnvVarDBNAME
+        }
+        {
+          name: 'DBPASS'
           value: appServiceAPIEnvVarDBPASS
         }
+        {
+          name: 'DBUSER'
+          value: appServiceAPIDBHostDBUSER
+        }  
       ]
     }
   }
