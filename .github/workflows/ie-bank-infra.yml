@@ -1,4 +1,4 @@
-name: app-infra-AGUADAMILLAS #UPDATE TO YOUR USER ALIAS
+name: app-infra-MMIRANDA #UPDATE TO YOUR USER ALIAS
 
 on:
   workflow_dispatch:
