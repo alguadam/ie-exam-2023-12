@@ -7,4 +7,23 @@ def test_create_character():
     WHEN a new Character is created
     THEN check the alias, name, level, health, strength, defense and speed are defined correctly
     """
-    # Exercise 1: Develop this test according to the definition and make it pass in the GitHub workflow
+    # Create a character with test data
+    character = Character( 
+        alias= 'Ana 123', 
+        name= 'Test Ana',
+        level= 1,
+        health= 100,
+        strength= 10,
+        defense= 10,
+        speed= 5
+    )
+    
+    # Assert that each attribute is set correctly
+    assert character.alias == 'Ana123'
+    assert character.name == 'Test Ana'
+    assert character.level == 1
+    assert character.health == 100
+    assert character.strength == 10
+    assert character.defense == 10
+    assert character.speed == 5
+
