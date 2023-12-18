@@ -8,7 +8,7 @@ on:
       - '.github/workflows/ie-bank-backend.yml'
 
 env:
-  BACKEND_WEBAPP_DEV: ie-bank-be-smorenolasa #Exercise III: set the name of your web app
+  BACKEND_WEBAPP_DEV: smorenolasa-asp #Exercise III: set the name of your web app
 
 jobs:
   build:
