@@ -3,19 +3,19 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "postgreSQLServerName": {
-            "value": "11acc-dbsrv-dev"
+            "value": "11acc-NEW-dbsrv-dev"
         },
         "postgreSQLDatabaseName": {
-            "value": "11acc-db-dev"
+            "value": "11acc-NEW-db-dev"
         },
         "appServicePlanName": {
-            "value": "11acc-asp-dev"
+            "value": "11acc-NEW-asp-dev"
         },
         "appServiceAPIAppName": {
-            "value": "11acc-be-dev"
+            "value": "11acc-NEW-be-dev"
         },
         "location": {
-            "value": "Poland Central"
+            "value": "Japan East"
         }
     }
 }
