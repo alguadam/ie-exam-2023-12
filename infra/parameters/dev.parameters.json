@@ -1,0 +1,27 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "postgreSQLDatabaseName": {
+            "value": "Karimg-db-server-dev"
+        },
+        "postgreSQLServerName": {
+            "value": "Karimg"
+        },
+        "appServicePlanName": {
+            "value": "Karimg-app-sp-dev"
+        },
+        "appServiceAPIAppName": {
+            "value": "Karimg-ie-bank-api-dev"
+        },
+        "appServiceAPIEnvVarENV": {
+            "value": "dev"
+        },
+        "appServiceAPIEnvVarDBHOST":{
+            "value": "Karimg-ie-bank-db.postgres.database.azure.com"
+        },
+        "appServiceAPIEnvVarDBNAME":{
+            "value": "Karimg-db-server-dev"
+        }
+        }
+    }
