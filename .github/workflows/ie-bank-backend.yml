@@ -58,6 +58,8 @@ jobs:
     - name: Test with pytest
       working-directory: ./backend
       run: |
+        python -m pytest tests/unit -v
+        python -m pytest tests/functional -v
         python -m pytest --cov=iebank_api -v
 
       # Exercise III
