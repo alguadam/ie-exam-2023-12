@@ -10,7 +10,7 @@ on:
 env:
   RESOURCE_GROUP_DEV: aguadamillas_students_2
   SUBSCRIPTION_ID_DEV: e0b9cada-61bc-4b5a-bd7a-52c606726b3b
-  USER_ALIAS: #Add your student alias here
+  USER_ALIAS: bmossberg #Add your student alias here
 
 jobs:
   build:
@@ -22,7 +22,7 @@ jobs:
       # Exercise II
       # GitHub action: Write step to linter main.bicep
           # Checkout code
-        - uses: actions/checkout@main
+        - uses: actions/checkout@bmossberg
     
           # Lint Bicep code 
         - name: Run Bicep linter
@@ -51,7 +51,7 @@ jobs:
       # GitHub action: Write step to deploy main.bicep file to Azure. You can use the repository secrets DBPASS and DBUSER.
       # Recommended to use your student alias to set the deployment name to avoid conflicts with other student's deployments
       # Checkout code
-      - uses: actions/checkout@main
+      - uses: actions/checkout@bmossberg
     
         # Log into Azure
       - uses: azure/login@v1
