@@ -108,6 +108,8 @@ resource appServiceAPIApp 'Microsoft.Web/sites@2022-03-01' = {
             appServiceAPIEnvVarDBNAME: appServiceAPIEnvVarDBNAME
             appServiceAPIEnvVarDBPASS: appServiceAPIEnvVarDBPASS
             appServiceAPIEnvVarENV: appServiceAPIEnvVarENV
+            appServiceAPIDBHostFLASK_APP: appServiceAPIDBHostFLASK_APP 
+            appServiceAPIDBHostFLASK_DEBUG: appServiceAPIDBHostFLASK_DEBUG
           }
         }
       
