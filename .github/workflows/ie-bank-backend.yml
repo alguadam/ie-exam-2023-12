@@ -8,7 +8,7 @@ on:
       - '.github/workflows/ie-bank-backend.yml'
 
 env:
-  BACKEND_WEBAPP_DEV: karimg-be-dev #Exercise III: set the name of your web app
+  BACKEND_WEBAPP_DEV: Karimg-ie-bank-api-dev #Exercise III: set the name of your web app
   RESOURCE_GROUP: aguadamillas_students_1
 
 jobs:

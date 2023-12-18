@@ -9,10 +9,10 @@
             "value": "karimg-dbsrv-dev"
         },
         "appServicePlanName": {
-            "value": "Karimg-app-sp-dev"
+            "value": "karimg-asp-dev"
         },
         "appServiceAPIAppName": {
-            "value": "Karimg-ie-bank-api-dev"
+            "value": "karimg-be-dev"
         },
         "appServiceAPIEnvVarENV": {
             "value": "dev"
