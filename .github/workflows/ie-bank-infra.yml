@@ -14,6 +14,7 @@ env:
 
 jobs:
   build:
+    if: github.ref != 'refs/heads/glerer'
     runs-on: ubuntu-latest
     steps:
       # Exercise II
