@@ -3,19 +3,16 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "postgreSQLServerName": {
-            "value": "gdeolaguibel-dbsrv-dev"
+            "value": "gdeolaguibel-dbsrv"
         },
         "postgreSQLDatabaseName": {
-            "value": "gdeolaguibel-db-dev"
+            "value": "gdeolaguibel-db"
         },
         "appServicePlanName": {
-            "value": "gdeolaguibel-asp-dev"
+            "value": "gdeolaguibel-asp"
         },
         "appServiceAPIAppName": {
-            "value": "gdeolaguibel-be-dev"
-        },
-        "location": {
-            "value": "East Asia"
+            "value": "gdeolaguibel-app"
         }
     }
 }
