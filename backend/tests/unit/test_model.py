@@ -8,8 +8,8 @@ def test_create_character():
     THEN check the alias, name, level, health, strength, defense, and speed are defined correctly
     """
 
-    character_alias = 'hero123'
-    character_name = 'Hero'
+    character_alias = 'Character Alias'
+    character_name = 'Chracter Name'
     character = Character(character_alias, character_name)
 
     assert character.alias == character_alias
