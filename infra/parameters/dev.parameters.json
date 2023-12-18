@@ -3,16 +3,16 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "postgreSQLServerName": {
-            "value": "MarcChebli-dbsrv-dev"
+            "value": "marcchebli-dbsrv-dev"
         },
         "postgreSQLDatabaseName": {
             "value": "marcchebli-db-dev"
         },
         "appServicePlanName": {
-            "value": "MarcChebli-asp-dev"
+            "value": "marcchebli-asp-dev"
         },
         "appServiceAPIAppName": {
-            "value": "MarcChebli-be-dev"
+            "value": "marcchebli-be-dev"
         },
         "location": {
             "value": "West US"
