@@ -18,6 +18,8 @@ elif os.getenv('ENV') == 'ghci':
 else:
     print("Running in development mode")
     app.config.from_object('config.DevelopmentConfig')
+    
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
 
 db = SQLAlchemy(app)
 
