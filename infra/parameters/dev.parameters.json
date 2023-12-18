@@ -3,10 +3,10 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "postgreSQLDatabaseName": {
-            "value": "Karimg-db-server-dev"
+            "value": "Karimg-dbsrv-dev"
         },
         "postgreSQLServerName": {
-            "value": "Karimg"
+            "value": "Karimg-db-server-dev"
         },
         "appServicePlanName": {
             "value": "Karimg-app-sp-dev"
