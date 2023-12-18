@@ -1,18 +1,14 @@
 @sys.description('The PostgreSQL Server name')
-@minlength(3)
-@maxlength(24)
+
 param postgreSQLServerName string = 'ie-bank-db-server-dev'
 @sys.description('The PostgreSQL Database name')
-@minlength(3)
-@maxlength(24)
+
 param postgreSQLDatabaseName string = 'ie-bank-db'
 @sys.description('The App Service Plan name')
-@minlength(3)
-@maxlength(24)
+
 param appServicePlanName string = 'ie-bank-app-sp-dev'
 @sys.description('The API App name (backend)')
-@minlength(3)
-@maxlength(24)
+
 param appServiceAPIAppName string = 'ie-bank-api-dev'
 @sys.description('The Azure location where the resources will be deployed')
 param location string = resourceGroup().location
