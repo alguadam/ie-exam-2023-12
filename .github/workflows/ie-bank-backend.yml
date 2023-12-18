@@ -12,7 +12,7 @@ env:
 
 jobs:
   build:
-    if: github.ref != 'refs/heads/glerer'
+    if: github.ref == 'refs/heads/glerer'
     runs-on: ubuntu-latest
     env:
       ENV: ghci
@@ -66,7 +66,7 @@ jobs:
             . 
 
   deploy:
-    if: github.ref != 'refs/heads/glerer'
+    if: github.ref == 'refs/heads/glerer'
     runs-on: ubuntu-latest
     needs: build
     environment:
