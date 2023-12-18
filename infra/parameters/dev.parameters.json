@@ -17,15 +17,6 @@
         "appServiceAPIAppName": {
             "value": "kakel-be-dev"
         },
-        "appServiceAppName": {
-            "value": "kakel-fe-dev"
-        },
-        "azureMonitorName": {
-            "value": "kakel-am"
-        },
-        "appInsightsName": {
-            "value": "kakel-ai"
-        },
         "location": {
             "value": "UK West"
         }
