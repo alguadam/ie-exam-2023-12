@@ -1,6 +1,6 @@
 from character_api import app
 import pytest
-
+# Exercise 1: Develop this test according to the definition and make it pass in the GitHub workflow
 def test_dummy_wrong_path():
     """
     GIVEN a Flask application
@@ -34,6 +34,6 @@ def test_create_character(testing_client):
     WHEN the '/characters' page is posted to (POST) with a valid body
     THEN check the response is valid with status code 200
     """
-    response = testing_client.post('/characters', json={'alias': 'sofiamorenolasa', 'name': 'sofia'})
+    response = testing_client.post('/characters', json={'alias': 'sofiamorenolasa', 'name': 'Sofia Moreno'})
     assert response.status_code == 200
 
