@@ -49,5 +49,5 @@ jobs:
           subscriptionId: ${{ env.SUBSCRIPTION_ID_DEV }}
           resourceGroupName: ${{ env.RESOURCE_GROUP_DEV }}
           template: ./infra/main.bicep
-          parameters: ./parameters/parameters-dev.json
+          parameters: .infra/parameters/dev.parameters.json
           deploymentName: ${{ env.USER_ALIAS }}
