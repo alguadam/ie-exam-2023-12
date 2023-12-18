@@ -27,6 +27,7 @@ jobs:
       # Exercise II
       # GitHub action: Write step to linter main.bicep
       - name: Run Bicep Linter
+        working-directory: ./infra
         run: az bicep build --file ./main.bicep
 
   deploy:
@@ -54,8 +55,8 @@ jobs:
         with: 
           subscriptionId: ${{env.SUBSCRIPTION_ID_DEV}}
           resourceGroupName: ${{env.RESOURCE_GROUP_DEV}}
-          template: ./main.bicep 
-          parameters: ./parameters/dev.parameters.json appServiceAPIEnvVarENV=${{ env.appServiceAPIEnvVarENV }} appServiceAPIEnvVarDBHOST=${{ env.appServiceAPIEnvVarDBHOST}} appServiceAPIEnvVarDBNAME=${{ env.appServiceAPIEnvVarDBNAME }} appServiceAPIEnvVarDBPASS=${{ secrets.DBPASS }} appServiceAPIDBHostDBUSER=${{ secrets.DBUSER }} 
+          template: ./infra/main.bicep 
+          parameters: ./infra/parameters/dev.parameters.json appServiceAPIEnvVarENV=${{ env.appServiceAPIEnvVarENV }} appServiceAPIEnvVarDBHOST=${{ env.appServiceAPIEnvVarDBHOST}} appServiceAPIEnvVarDBNAME=${{ env.appServiceAPIEnvVarDBNAME }} appServiceAPIEnvVarDBPASS=${{ secrets.DBPASS }} appServiceAPIDBHostDBUSER=${{ secrets.DBUSER }} 
 
 
 
