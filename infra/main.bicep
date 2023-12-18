@@ -23,6 +23,7 @@ param appServiceAPIDBHostFLASK_APP string
 @sys.description('The value for the environment variable FLASK_DEBUG')
 param appServiceAPIDBHostFLASK_DEBUG string
 
+@secure()
 @sys.description('The value for the database server login username')
 param postgresSQLServerLogin string
 
