@@ -25,7 +25,9 @@
         },
         "dbPass": {
             "value": "" 
-        },
-        "location": "UK South"
+        },        
+        "location":{
+            "value": "UK South"
+        }
     }
     }
