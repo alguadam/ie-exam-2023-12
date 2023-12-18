@@ -14,4 +14,4 @@ def test_create_character():
     assert character.health == 100.0
     assert character.strength == 5.0
     assert character.defense == 5.0
-    assert character.speed == .0
+    assert character.speed == 5.0
