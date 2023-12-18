@@ -24,10 +24,10 @@ param appServiceAPIEnvVarDBHOST string
 param appServiceAPIEnvVarDBNAME string
 @sys.description('The value for the environment variable DBPASS')
 @secure()
-param appServiceAPIEnvVarDBPASS string = 'maud1234'
+param appServiceAPIEnvVarDBPASS string
 @sys.description('The value for the environment variable DBUSER')
 @secure()
-param appServiceAPIDBHostDBUSER string = 'maud'
+param appServiceAPIDBHostDBUSER string
 @sys.description('The value for the environment variable FLASK_APP')
 param appServiceAPIDBHostFLASK_APP string
 @sys.description('The value for the environment variable FLASK_DEBUG')
@@ -41,8 +41,8 @@ resource postgresSQLServer 'Microsoft.DBforPostgreSQL/flexibleServers@2022-12-01
     tier: 'Burstable'
   }
   properties: {
-    administratorLogin: appServiceAPIEnvVarDBPASS
-    administratorLoginPassword: appServiceAPIDBHostDBUSER
+    administratorLogin: appServiceAPIDBHostDBUSER
+    administratorLoginPassword: appServiceAPIEnvVarDBPASS
     createMode: 'Default'
     highAvailability: {
       mode: 'Disabled'
