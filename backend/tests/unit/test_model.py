@@ -8,8 +8,8 @@ def test_create_character():
     THEN check the alias, name, level, health, strength, defense and speed are defined correctly
     """
     # Exercise 1: Develop this test according to the definition and make it pass in the GitHub workflow
-    new_character = Character(alias='Do7', name='Zaid')
-    assert new_character.alias == 'Do7'
+    new_character = Character(alias='alguadam', name='Alvaro Guadamillas')
+    assert new_character.alias == 'Alvaro Guadamillas'
     assert new_character.name == 'Zaid'
     assert new_character.level == 1
     assert new_character.health == 100.0
