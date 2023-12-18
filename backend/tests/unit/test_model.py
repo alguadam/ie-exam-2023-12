@@ -9,10 +9,10 @@ def test_create_character():
     """
     character = Character('kathe', 'papilioau')
     # Assert that the attributes are as expected
-    assert character.alias == 'Test Alias'
-    assert character.name == 'Test Name'
+    assert character.alias == 'kathe'
+    assert character.name == 'papilioau'
     assert character.level == 1
-    assert character.health == 100
-    assert character.strength == 10
-    assert character.defense == 10
-    assert character.speed == 10
+    assert character.health == 100.0
+    assert character.strength == 5.0
+    assert character.defense == 5.0
+    assert character.speed == 5.0
