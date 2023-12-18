@@ -9,11 +9,11 @@ def test_create_character():
     """
 
     # Create a new character instance
-    character = Character(alias="maudhelen", name="MaudHelen")
+    character = Character(alias="maudhelen", name="Maud Helen")
 
     # Assert that all attributes are set correctly as per model's __init__ and defaults
     assert character.alias == "maudhelen"
-    assert character.name == "MaudHelen"
+    assert character.name == "Maud Helen"
     assert character.level == 1
     assert character.health == 100.0
     assert character.strength == 5.0
