@@ -44,7 +44,7 @@ jobs:
           resourceGroupName: ${{ env.RESOURCE_GROUP_DEV }}
           template: infra/main.bicep
           parameters: >-
-            ./main.dev.parameters.json
+            infra/parameters/dev.parameters.json
             DBUSER=${{ secrets.DBUSER }}
             DBPASS=${{ secrets.DBPASS }}
           deploymentName: ${{ env.USER_ALIAS }}
