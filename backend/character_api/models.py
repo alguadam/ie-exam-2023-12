@@ -24,12 +24,3 @@ class Character(db.Model):
         self.strength = strength
         self.defense = defense
         self.speed = speed
-        
-"""     def __init__(self, alias, name):
-        self.alias = alias
-        self.name = name
-        self.level = 1
-        self.health = 100.0
-        self.strength = 5.0
-        self.defense = 5.0
-        self.speed = 5.0 """

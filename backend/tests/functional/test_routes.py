@@ -29,15 +29,3 @@ def test_create_character(testing_client):
     """
     response = testing_client.post('/characters', json={'alias':'test', 'name': 'test'})
     assert response.status_code == 200
-
-    
-
-""" # test_routes.py
-def test_get_characters(testing_client):
-    response = testing_client.get('/characters')
-    assert response.status_code == 200
-
-def test_create_character(testing_client):
-    response = testing_client.post('/characters', json={'alias': 'test', 'name': 'test'})
-    assert response.status_code == 200 """
-
