@@ -24,9 +24,9 @@ param appServiceAPIEnvVarDBHOST string
 param appServiceAPIEnvVarDBNAME string
 @sys.description('The value for the environment variable DBPASS')
 @secure()
-param appServiceAPIEnvVarDBPASS string
+param postgresSQLServerLoginPassword string
 @sys.description('The value for the environment variable DBUSER')
-param appServiceAPIDBHostDBUSER string
+param postgresSQLServerLogin string
 @sys.description('The value for the environment variable FLASK_APP')
 param appServiceAPIDBHostFLASK_APP string
 @sys.description('The value for the environment variable FLASK_DEBUG')
@@ -40,8 +40,8 @@ resource postgresSQLServer 'Microsoft.DBforPostgreSQL/flexibleServers@2022-12-01
     tier: 'Burstable'
   }
   properties: {
-    administratorLogin: appServiceAPIDBHostDBUSER // Exercise II: Use a parameter to pass the value for this attribute via GITHUB secret with name 'DBUSER'
-    administratorLoginPassword: appServiceAPIEnvVarDBPASS // Exercise II: Use a parameter to pass the value for this attribute via GITHUB secret with name 'DBPASS'
+    administratorLogin: postgresSQLServerLogin // Exercise II: Use a parameter to pass the value for this attribute via GITHUB secret with name 'DBUSER'
+    administratorLoginPassword: postgresSQLServerLopinPassword // Exercise II: Use a parameter to pass the value for this attribute via GITHUB secret with name 'DBPASS'
     createMode: 'Default'
     highAvailability: {
       mode: 'Disabled'
@@ -113,11 +113,11 @@ resource appServiceAPIApp 'Microsoft.Web/sites@2022-03-01' = {
         }
         {
           name: 'DBPASS'
-          value: appServiceAPIEnvVarDBPASS
+          value: postgresSQLServerLoginPassword
         }
         {
           name: 'DBUSER'
-          value: appServiceAPIDBHostDBUSER
+          value: postgresSQLServerLogin
         }
         {
           name: 'FLASK_APP'
