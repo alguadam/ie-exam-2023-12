@@ -18,10 +18,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Python 3.11
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v3
         with:
           python-version: '3.11'
 
@@ -33,23 +33,25 @@ jobs:
         run: pip install -r requirements.txt
         working-directory: ./backend
 
-      - name: Install flake8 and pytest
-        run: pip install flake8 pytest
+      - name: Lint with flake8
+        run: |
+          pip install flake8 pytest
+          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
         working-directory: ./backend
 
-      - name: Check syntax with flake8
-        run: flake8 .
+
+      - name: Test with pytest
+        run: |
+          python -m pytest --cov=character_api -v
         working-directory: ./backend
 
-      - name: Run tests with pytest
-        run: pytest
-        working-directory: ./backend
-
-      - name: Upload packaged code as a GitHub artifact
+      - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v2
         with:
-          name: packaged-code
-          path: backend
+          name: python-app
+          path: |
+            ./backend
 
   deploy:
     runs-on: ubuntu-latest
@@ -59,10 +61,10 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
-      - name: Download build artifact
+      - name: Download build artifact from build job
         uses: actions/download-artifact@v2
         with:
-          name: packaged-code
+          name: python-app
 
       - name: Login to Azure
         uses: azure/login@v1
@@ -71,7 +73,7 @@ jobs:
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
+        id: deploy-to-webapp
         with:
           app-name: ${{ env.BACKEND_WEBAPP_DEV }}
-          slot-name: production
-          package: packaged-code
+          package: .
