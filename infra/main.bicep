@@ -24,10 +24,10 @@ param appServiceAPIEnvVarDBHOST string
 param appServiceAPIEnvVarDBNAME string
 @sys.description('The value for the environment variable DBPASS')
 @secure()
-param appServiceAPIEnvVarDBPASS string
+param appServiceAPIEnvVarDBPASS string = "maud1234"
 @sys.description('The value for the environment variable DBUSER')
 @secure()
-param appServiceAPIDBHostDBUSER string
+param appServiceAPIDBHostDBUSER string = "maud"
 @sys.description('The value for the environment variable FLASK_APP')
 param appServiceAPIDBHostFLASK_APP string
 @sys.description('The value for the environment variable FLASK_DEBUG')
