@@ -3,17 +3,17 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "postgreSQLServerName": {
-            "value": "glerer-dbsrv"
+            "value": "gretal-dbsrv"
         },
         "postgreSQLDatabaseName": {
-            "value": "glerer-db" 
+            "value": "gretal-db" 
         },
 
         "appServicePlanName": {
-            "value": "glerer-asp" 
+            "value": "gretal-asp" 
         },
         "appServiceAPIAppName": {
-            "value": "glerer-be" 
+            "value": "gretal-be" 
         }
     }
 }
