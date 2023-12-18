@@ -1,4 +1,4 @@
-name: app-backend-AGUADAMILLAS #UPDATE WITH YOUR STUDENT ALIAS
+name: app-backend-MMIRANDA #UPDATE WITH YOUR STUDENT ALIAS
 
 on:
   workflow_dispatch:
