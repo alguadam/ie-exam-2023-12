@@ -2,22 +2,24 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "location": {
-            "value": "West US"
-        },
-        "PostgreSQLServerName": {
-            "value": "MarcChebli-postgresql"
+    
+        "postgreSQLServerName": {
+            "value": "MarcChebli-dbsrv-dev"
         },
         "postgreSQLDatabaseName": {
-            "value": "MarcChebli-postgresql-db"
+            "value": "MarcChebli-db-dev"
         },
-        "AppServicePlanName": {
-            "value": "MarcChebli-appserviceplan"
+        "appServicePlanName": {
+            "value": "MarcChebli-asp-dev"
         },
-        "appServiceAPIAppName ":{
-            "value": "MarcChebli-appserviceapi"
+        "appServiceAPIAppName": {
+            "value": "MarcChebli-be-dev"
+        },
+        "appServiceAppName": {
+            "value": "sbarakat-fe-dev"
+        },
+        "location": {
+            "value": "West US"
         }
-        
-        }
-
-        }
+    }
+}
