@@ -1,19 +1,19 @@
 @sys.description('The PostgreSQL Server name')
 @minLength(3)
 @maxLength(24)
-param postgreSQLServerName string = 'ie-bank-db-server-dev'
+param postgreSQLServerName string 
 @sys.description('The PostgreSQL Database name')
 @minLength(3)
 @maxLength(24)
-param postgreSQLDatabaseName string = 'ie-bank-db'
+param postgreSQLDatabaseName string 
 @sys.description('The App Service Plan name')
 @minLength(3)
 @maxLength(24)
-param appServicePlanName string = 'ie-bank-app-sp-dev'
+param appServicePlanName string 
 @sys.description('The API App name (backend)')
 @minLength(3)
 @maxLength(24)
-param appServiceAPIAppName string = 'ie-bank-api-dev'
+param appServiceAPIAppName string 
 @sys.description('The Azure location where the resources will be deployed')
 param location string = resourceGroup().location
 @sys.description('The value for the environment variable ENV')
@@ -27,10 +27,10 @@ param appServiceAPIEnvVarDBNAME string
 param appServiceAPIEnvVarDBPASS string
 @sys.description('The value for the environment variable DBUSER')
 param appServiceAPIDBHostDBUSER string
-@sys.description('The value for the environment variable FLASK_APP')
-param appServiceAPIDBHostFLASK_APP string
-@sys.description('The value for the environment variable FLASK_DEBUG')
-param appServiceAPIDBHostFLASK_DEBUG string
+// @sys.description('The value for the environment variable FLASK_APP')
+// param appServiceAPIDBHostFLASK_APP string
+// @sys.description('The value for the environment variable FLASK_DEBUG')
+// param appServiceAPIDBHostFLASK_DEBUG string
 
 resource postgresSQLServer 'Microsoft.DBforPostgreSQL/flexibleServers@2022-12-01' = {
   name: postgreSQLServerName
@@ -40,8 +40,8 @@ resource postgresSQLServer 'Microsoft.DBforPostgreSQL/flexibleServers@2022-12-01
     tier: 'Burstable'
   }
   properties: {
-    administratorLogin: // Exercise II: Use a parameter to pass the value for this attribute via GITHUB secret with name 'DBUSER'
-    administratorLoginPassword: // Exercise II: Use a parameter to pass the value for this attribute via GITHUB secret with name 'DBPASS'
+    administratorLogin: appServiceAPIDBHostDBUSER // Exercise II: Use a parameter to pass the value for this attribute via GITHUB secret with name 'DBUSER'
+    administratorLoginPassword: appServiceAPIEnvVarDBPASS // Exercise II: Use a parameter to pass the value for this attribute via GITHUB secret with name 'DBPASS'
     createMode: 'Default'
     highAvailability: {
       mode: 'Disabled'
@@ -103,6 +103,26 @@ resource appServiceAPIApp 'Microsoft.Web/sites@2022-03-01' = {
           name: 'SCM_DO_BUILD_DURING_DEPLOYMENT'
           value: 'true'
         }
+        {
+          name: 'ENV'
+          value: appServiceAPIEnvVarENV
+        }
+        {
+          name: 'DBHOST'
+          value: appServiceAPIEnvVarDBHOST
+        }
+        {
+          name: 'DBNAME'
+          value: appServiceAPIEnvVarDBNAME
+        }
+        {
+          name: 'DBPASS'
+          value: appServiceAPIEnvVarDBPASS
+        }
+        {
+          name: 'DBUSER'
+          value: appServiceAPIDBHostDBUSER
+        }  
       ]
     }
   }
