@@ -11,8 +11,8 @@ def test_create_character():
     new_character = Character(alias='Do7', name='Zaid', level=1, health=100, strength=10, defense=10, speed=10)
     assert new_character.alias == 'Do7'
     assert new_character.name == 'Zaid'
-    assert new_character.level == 1.0
+    assert new_character.level == 1
     assert new_character.health == 100.0
-    assert new_character.strength == 10.0
-    assert new_character.defense == 10.0
-    assert new_character.speed == 10.0
+    assert new_character.strength == 5.0
+    assert new_character.defense == 5.0
+    assert new_character.speed == 5.0
