@@ -10,7 +10,7 @@ on:
 env:
   RESOURCE_GROUP_DEV: aguadamillas_students_2
   SUBSCRIPTION_ID_DEV: e0b9cada-61bc-4b5a-bd7a-52c606726b3b
-  USER_ALIAS: smorenolasa
+  USER_ALIAS: bmossberg
 
 jobs:
   build:
@@ -29,12 +29,6 @@ jobs:
     needs: build
     environment:
       name: "Development"
-    env:
-      ENV: dev
-      DBHOST: bmossberg-dbsrv-dev.postgres.database.azure.com
-      DBNAME: bmossberg-db-dev
-      FLASK_APP: app.py
-      FLASK_DEBUG: 1
 
     steps:
       # Exercise II
@@ -53,6 +47,7 @@ jobs:
       - name: deploy
         uses: azure/arm-deploy@v1
         with:
+          scope: resource-group
           subscriptionId: ${{ env.SUBSCRIPTION_ID_DEV }}
           resourceGroupName: ${{ env.RESOURCE_GROUP_DEV }}
           template: ./infra/main.bicep
