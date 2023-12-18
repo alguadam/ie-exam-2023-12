@@ -32,6 +32,6 @@ def test_create_character(testing_client):
     """
     # Exercise 1: Develop this test according to the definition and make it pass in the GitHub workflow
 
-response = testing_client.post(
+    response = testing_client.post(
         '/characters', json={'alias': 'johndoe_alias', 'name': 'John Doe'})
     assert response.status_code == 200
