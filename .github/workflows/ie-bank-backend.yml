@@ -67,7 +67,7 @@ jobs:
           with:
             creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-        - name: 'Deploy to Azure Web App'
+        - name: 'Deploy to Azure Web App NOW'
           uses: azure/webapps-deploy@v2
           id: deploy-to-webapp
           with:
