@@ -20,7 +20,7 @@ jobs:
     - uses: actions/checkout@main
     # Lint Bicep code 
     - name: Run Bicep linter
-      run: az bicep build --file ./main.bicep
+      run: az bicep build --file infra/main.bicep
 
   deploy:
     runs-on: ubuntu-latest
